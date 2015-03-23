@@ -15,3 +15,9 @@ npm install
 bower install
 grunt server
 ```
+==============
+
+það sem við erum búnar að gera hjá okkur:
+npm install
+npm install -g bower //ath að bower mappan fór inn í app hjá H og P
+grunt server
