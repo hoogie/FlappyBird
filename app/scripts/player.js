@@ -31,7 +31,7 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 		VELOCITY += GRAVITY * delta;
-		console.log(delta)
+	//	console.log(delta)
 		if (Controls.keys.space) {
 			//console.log(JUMP);
 			VELOCITY = -JUMP;

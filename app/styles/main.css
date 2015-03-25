@@ -65,3 +65,12 @@ overflow: hidden;
 background: url("landscape.png");
 background-size: contain;
 }
+
+.River {
+	position: absolute;
+	bottom: 0;
+	width: 200em;
+	height: 20em;
+	background: url(river.png);
+	background-size: contain;
+}
