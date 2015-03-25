@@ -6,6 +6,10 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 30; // * 10 pixels per second
+	var JUMP = 100;
+	var GRAVITY = 50;
+	var VELOCITY = 1000;
+
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -26,17 +30,14 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
-			this.pos.y -= delta * SPEED;
+		VELOCITY += GRAVITY * delta;
+		console.log(delta)
+		if (Controls.keys.space) {
+			//console.log(JUMP);
+			VELOCITY = -JUMP;
+			var movement = VELOCITY * delta;
+			//this.pos.y += delta * SPEED;
+			this.pos.y += movement;
 		}
 
 		this.checkCollisionWithBounds();
