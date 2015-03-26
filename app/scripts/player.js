@@ -1,3 +1,21 @@
+window.Wingup = (function() {
+	'use strict';
+	var INITIAL_POSITION_X = 30;
+	var INITIAL_POSITION_Y = 25;
+
+	Wingup.prototype.reset = function() {
+		this.pos.x = INITIAL_POSITION_X;
+		this.pos.y = INITIAL_POSITION_Y;
+	};
+
+	var Wingup = function(el, game) {
+		this.el = el;
+		this.game = game;
+		this.pos = { x: 0, y: 0 };
+	}
+});
+
+
 window.Player = (function() {
 	'use strict';
 
@@ -14,6 +32,7 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
+
 
 	var Player = function(el, game) {
 		this.el = el;
