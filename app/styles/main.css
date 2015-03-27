@@ -67,13 +67,33 @@ background-size: contain;
 }
 
 .River {
-	position: absolute;
+	/*position: absolute;
 	bottom: 0;
-	width: 200em;
-	height: 20em;
+	width: 1024px;
+	height: 200px;
 	background: url(river.png);
 	background-size: contain;
+	-webkit-animation: 0.4s flow infinte;*/
+	position: absolute;
+	bottom: 0;
+	width: 1024px;
+	height: 200px;
+	overflow: hidden;
 }
+
+
+.River-flow {
+	position: absolute;
+	bottom: 0;
+	width: 1402px;
+	height: 200px;
+	background-image: url(river.png);
+	background-repeat: repeat-x;
+}
+
+/*.River-flow-bottom{
+	-webkit-animation: River 17s infinite linear;
+}*/
 
 .Player-Wingup {
 	position: absolute;
@@ -96,3 +116,12 @@ background-size: contain;
 		transform: rotateX(180deg);
 	}
 }
+
+/*@webkit-keyframes flow {
+	0%{
+		margin-left: 0px;
+	}
+	100% {
+		margin-left: -701px;
+	}
+}*/
