@@ -46,6 +46,7 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		stopper = 0;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -59,21 +60,15 @@ window.Player = (function() {
 		
 		if(stopper === 0) {
 			this.pos.y = INITIAL_POSITION_Y;
-
 		}
 
 		if (Controls.keys.space) {
-
 			this.pos.y -= delta * JUMP;
-	
 			stopper = 1;
 		}
 
-		console.log(stopper);
-
 		if(stopper === 1) {
 					this.pos.y += delta * GRAVITY;
-
 		}
 
 
