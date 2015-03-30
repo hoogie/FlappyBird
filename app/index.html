@@ -46,7 +46,19 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
+            <!--   audio  -->
+            <div class="Audio">
+                <audio id="music" controls="controls" autoplay>
+                    <source src="C:/FlappyBird/app/music/02 Dear Catastrophe Waitress.mp3" type="audio/mp3" />
+                    <p>Sorry, your browser doesn't support this functionality</p>
+                </audio>
+            
+                <div class="Speaker">
+                    <button id="pButton" class="play" onclick="playAudio()"></button>
+                </div>
+            </div>
         </div>
+
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
@@ -60,6 +72,7 @@
         <script src="scripts/game.js"></script>
         <script src="scripts/player.js"></script>
         <script src="scripts/utils.js"></script>
+        <script src="scripts/audio.js"></script>
         <!-- endbuild -->
 </body>
 </html>

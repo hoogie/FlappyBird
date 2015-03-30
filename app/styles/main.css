@@ -1,5 +1,5 @@
 /*http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background*/
-
+/*http://stackoverflow.com/questions/28505871/css-animation-that-moves-continually*/
 .Player{
 	position: absolute;
 	top: 0;
@@ -19,7 +19,7 @@
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: green;
+	background: purple;
 	text-align: center;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
@@ -68,37 +68,6 @@ background: url("landscape.png");
 background-size: contain;
 }
 
-/*.River {
-	/*position: absolute;
-	bottom: 0;
-	width: 1024px;
-	height: 200px;
-	background: url(river.png);
-	background-size: contain;
-	-webkit-animation: 0.4s flow infinte;
-	position: ;
-	bottom: 0;
-	width: 1024px;
-	height: 200px;
-	overflow: hidden;
-}
-
-
-.River .flow {
-	position: absolute;
-	bottom: 0;
-	width: 1402px;
-	height: 200px;
-	background-image: url(river.png);
-	background-size: contain;
-	-webkit-animation: flow 17s infinite linear;
-}
-
-
-.River-flow-bottom{
-	-webkit-animation: River 17s infinite linear;
-}*/
-
 @-webkit-keyframes waves {
     0%{
         margin-left: 0;
@@ -113,7 +82,7 @@ background-size: contain;
     position: absolute;
     bottom: 0;
     width: 133em;
-    height: 8em;
+    height: 7em;
     overflow: hidden;
     -webkit-transform: translateZ(0);
 }
@@ -261,4 +230,27 @@ background-size: contain;
 @-o-keyframes moveclouds {
 	0% {margin-left: 1000px;}
 	100% {margin-left: -1000px;}
+}
+
+#pButton{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height:3em; 
+	width: 3em;
+	border: none;
+	background-size: 50% 50%;
+	background-position: center;
+}
+
+.play{
+	background: url('music_on.png') no-repeat;
+}
+
+.mute{
+	background: url('music_off.png') no-repeat;
+}
+
+#music {
+	display: none;
 }
