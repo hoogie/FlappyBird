@@ -41,31 +41,31 @@
 	cursor: pointer;
 }
 .Scoreboard-restartText {
-font-family: 'Lucida Console', serif;
-font-size: 2.4em;
-color: white;
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 2.4em;
+	color: white;
 }
 body {
-background: black;
+	background: black;
 }
 .browsehappy {
-margin: 0.2em 0;
-background: ?#?ccc?;
-color: #000;
-padding: 0.2em 0;
+	margin: 0.2em 0;
+	background: ?#?ccc?;
+	color: #000;
+	padding: 0.2em 0;
 }
 .GameCanvas {
-font-size: 10px;
-position: absolute;
-left: 50%;
-top: 50%;
-width: 102.4em;
-height: 57.6em;
-margin-left: -51.2em;
-margin-top: -28.8em;
-overflow: hidden;
-background: url("landscape.png");
-background-size: contain;
+	font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 102.4em;
+	height: 57.6em;
+	margin-left: -51.2em;
+	margin-top: -28.8em;
+	overflow: hidden;
+	background: url("landscape.png");
+	background-size: contain;
 }
 
 /*.River {
@@ -100,36 +100,37 @@ background-size: contain;
 }*/
 
 @-webkit-keyframes waves {
-    0%{
-        margin-left: 0;
+    0%
+    {
+		margin-left: 0;
     }
 
-    100%{
-        margin-left: -133em; /* end after exactly one image width */
+    100%
+    {
+		margin-left: -133em; /* end after exactly one image width */
     }
 }
 
 .River {
-    position: absolute;
-    bottom: 0;
-    width: 133em;
-    height: 7em;
-    overflow: hidden;
-    -webkit-transform: translateZ(0);
+	position: absolute;
+	bottom: 0;
+	width: 133em;
+	height: 7em;
+	overflow: hidden;
+	-webkit-transform: translateZ(0);
 }
 
-.River .wave{
-    margin-left: 0;
-
-    width: 133em + 8em; /* twice the image's width */
-    height: 8em;
-    background: url("river1.png");
-    background-size: contain;
-    -webkit-transform: translateZ(0);
+.River .wave {
+	margin-left: 0;
+	width: 133em + 8em; /* twice the image's width */
+	height: 8em;
+	background: url("river1.png");
+	background-size: contain;
+	-webkit-transform: translateZ(0);
 }
 
-.River .wave.bottom-wave{
-    -webkit-animation:waves 10s infinite linear;
+.River .wave.bottom-wave {
+	-webkit-animation:waves 10s infinite linear;
 }
 
 .Player-Wingup {
@@ -141,15 +142,16 @@ background-size: contain;
 	background: url("wingup.png") no-repeat;
 	background-size: contain;
 	-webkit-animation: 0.4s flap alternate infinite;
-	-webkit-transform: translateZ(0);
-	
+	-webkit-transform: translateZ(0);	
 }
 
 @-webkit-keyframes flap {
-	from{
+	from
+	{
 		transform: rotateX(0);
 	}
-	to{
+	to
+	{
 		transform: rotateX(180deg);
 	}
 }
@@ -158,11 +160,9 @@ background-size: contain;
 .cloud {
 	width: 200px; height: 60px;
 	background: #fff;
-	
 	border-radius: 200px;
 	-moz-border-radius: 200px;
 	-webkit-border-radius: 200px;
-	
 	position: relative; 
 }
 
@@ -172,11 +172,9 @@ background-size: contain;
 	background: #fff;
 	width: 100px; height: 80px;
 	position: absolute; top: -15px; left: 10px;
-	
 	border-radius: 100px;
 	-moz-border-radius: 100px;
 	-webkit-border-radius: 100px;
-	
 	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
 	-moz-transform: rotate(30deg);
@@ -212,12 +210,10 @@ background-size: contain;
 
 .x3 {
 	left: 80em; top: 2em;
-	
 	-webkit-transform: scale(0.8);
 	-moz-transform: scale(0.8);
 	transform: scale(0.8);
 	opacity: 0.8; /*opacity proportional to the size*/
-	
 	-webkit-animation: moveclouds 12s linear infinite;
 	-moz-animation: moveclouds 12s linear infinite;
 	-o-animation: moveclouds 12s linear infinite;
@@ -225,12 +221,10 @@ background-size: contain;
 
 .x4 {
 	left: 47em;
-	
 	-webkit-transform: scale(0.75);
 	-moz-transform: scale(0.75);
 	transform: scale(0.75);
 	opacity: 0.75; /*opacity proportional to the size*/
-	
 	-webkit-animation: moveclouds 18s linear infinite;
 	-moz-animation: moveclouds 18s linear infinite;
 	-o-animation: moveclouds 18s linear infinite;
@@ -239,12 +233,10 @@ background-size: contain;
 .x5 {
 	left: 80em;
 	top: -15em;
-	
 	-webkit-transform: scale(0.8);
 	-moz-transform: scale(0.8);
 	transform: scale(0.8);
 	opacity: 0.8; /*opacity proportional to the size*/
-	
 	-webkit-animation: moveclouds 30s linear infinite;
 	-moz-animation: moveclouds 30s linear infinite;
 	-o-animation: moveclouds 30s linear infinite;
@@ -262,30 +254,31 @@ background-size: contain;
 	0% {margin-left: 100em;}
 	100% {margin-left: -100em;}
 }
-.pipe
-{
-   position: absolute;
-   left: -10em;
-   width: 5.2em;
-   height: 100%;
-   z-index: 10;
-   
-   -webkit-animation: animPipe 7500ms linear;
-   animation: animPipe 7500ms linear;
+.pipe {
+	position: absolute;
+	left: -10em;
+	width: 5.2em;
+	height: 100%;
+	z-index: 10;
+	-webkit-animation: animPipe 7500ms linear;
+	animation: animPipe 7500ms linear;
+	
 }
 
-.upperPipe
-{
-   position: absolute;
-   top: 0;
-   width: 5.2em;
-   background-image: url('pipe.png');
-   background-repeat: repeat-y;
-   background-position: center;
+.upperPipe {
+	position: absolute;
+	height: 20em;
+	top: 0;
+	right: 2.5em;
+	background-image: url('pipe.png');
+	background-repeat: repeat-y;
+	background-position: center;
+	-webkit-animation: animPipe 5s infinite linear;
+	-moz-animation: animPipe 5s infinite linear;
+	animation: animPipe 5s linear;
 }
 
-.upperPipe:after
-{
+.upperPipe:after {
    content: "";
    position: absolute;
    bottom: 0;
@@ -294,22 +287,41 @@ background-size: contain;
    background-image: url('pipe-down.png');
 }
 
-.lowerPipe
-{
-   position: absolute;
-   bottom: 0;
-   width: 5.2em;
-   background-image: url('pipe.png');
-   background-repeat: repeat-y;
-   background-position: center;
+.lowerPipe {
+	position: absolute;
+	height: 20em;
+	bottom: 0;
+	right: 2.5em;
+	background-image: url('pipe.png');
+	background-repeat: repeat-y;
+	background-position: center;
+	-webkit-animation: animPipe 5s infinite linear;
+	-moz-animation: animPipe 5s infinite linear;
+	animation: animPipe 5s linear;
 }
 
-.lowerPipe:after
-{
-   content: "";
-   position: absolute;
-   top: 0;
-   width: 5.2em;
-   height: 2.6em;
-   background-image: url('pipe-up.png');
+.lowerPipe:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 5.2em;
+	height: 2.6em;
+	background-image: url('pipe-up.png');    
+}
+
+@-webkit-keyframes animPipe {
+   0% { left: 900px; }
+   100% { left: -100px; }
+}
+@-moz-keyframes animPipe {
+   0% { left: 900px; }
+   100% { left: -100px; }
+}
+@-o-keyframes animPipe {
+   0% { left: 900px; }
+   100% { left: -100px; }
+}
+@keyframes animPipe {
+   0% { left: 900px; }
+   100% { left: -100px; }
 }

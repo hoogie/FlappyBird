@@ -16,7 +16,7 @@ function updatePipes()
    var constraint = 420 - pipeheight - (padding * 2); //double padding (for top and bottom)
    var topheight = Math.floor((Math.random()*constraint) + padding); //add lower padding
    var bottomheight = (420 - pipeheight) - topheight;
-   var newpipe = $('<div class="pipes"><div class="upperPipe" style="height: ' + topheight + 'px;"></div><div class="lowerPipe" style="height: ' + bottomheight + 'px;"></div></div>');
+   var newpipe = $('<div class="upperPipe" style="height: ' + topheight + 'em;"></div><div class="lowerPipe" style="height: ' + bottomheight + 'em;"></div></div>');
    $("#flyarea").append(newpipe);
    pipes.push(newpipe);
 }
