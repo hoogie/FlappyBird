@@ -19,7 +19,7 @@
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: green;
+	background: purple;
 	text-align: center;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
@@ -41,7 +41,7 @@
 	cursor: pointer;
 }
 .Scoreboard-restartText {
-font-family: 'Comic Sans MS', serif;
+font-family: 'Lucida Console', serif;
 font-size: 2.4em;
 color: white;
 }
@@ -113,7 +113,7 @@ background-size: contain;
     position: absolute;
     bottom: 0;
     width: 133em;
-    height: 8em;
+    height: 7em;
     overflow: hidden;
     -webkit-transform: translateZ(0);
 }
@@ -251,14 +251,65 @@ background-size: contain;
 }
 
 @-webkit-keyframes moveclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
+	0% {margin-left: 100em;}
+	100% {margin-left: -100em;}
 }
 @-moz-keyframes moveclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
+	0% {margin-left: 100em;}
+	100% {margin-left: -100em;}
 }
 @-o-keyframes moveclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
+	0% {margin-left: 100em;}
+	100% {margin-left: -100em;}
+}
+.pipe
+{
+   position: absolute;
+   left: -10em;
+   width: 5.2em;
+   height: 100%;
+   z-index: 10;
+   
+   -webkit-animation: animPipe 7500ms linear;
+   animation: animPipe 7500ms linear;
+}
+
+.upperPipe
+{
+   position: absolute;
+   top: 0;
+   width: 5.2em;
+   background-image: url('pipe.png');
+   background-repeat: repeat-y;
+   background-position: center;
+}
+
+.upperPipe:after
+{
+   content: "";
+   position: absolute;
+   bottom: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-down.png');
+}
+
+.lowerPipe
+{
+   position: absolute;
+   bottom: 0;
+   width: 5.2em;
+   background-image: url('pipe.png');
+   background-repeat: repeat-y;
+   background-position: center;
+}
+
+.lowerPipe:after
+{
+   content: "";
+   position: absolute;
+   top: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-up.png');
 }
