@@ -246,7 +246,6 @@ body {
 
 #music {
 	display: none;
-=======
 	0% {margin-left: 100em;}
 	100% {margin-left: -100em;}
 }
@@ -296,7 +295,6 @@ body {
 	animation: animPipe 5s linear;
 }
 
-<<<<<<< HEAD
 .lowerPipe:after
 {
    content: "";
@@ -305,15 +303,6 @@ body {
    width: 5.2em;
    height: 2.6em;
    background-image: url('pipe-up.png');
->>>>>>> 7a51ea983b1b2c6d97a1a62901320b89222c62e1
-=======
-.lowerPipe:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	width: 5.2em;
-	height: 2.6em;
-	background-image: url('pipe-up.png');    
 }
 
 @-webkit-keyframes animPipe {
@@ -331,5 +320,4 @@ body {
 @keyframes animPipe {
    0% { left: 900px; }
    100% { left: -100px; }
->>>>>>> 526bc5b5c379a2040dd84f06c0dd89b2739ccd9a
 }
