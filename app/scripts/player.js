@@ -96,7 +96,7 @@ window.Player = (function() {
 
 		if(stopper === 1) {
 					this.pos.y += delta * GRAVITY;
-					this.game.begin();
+					//this.game.begin();
 
 		}
 
