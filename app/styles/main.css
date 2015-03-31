@@ -127,11 +127,11 @@ body {
 
 /*Time to finalise the cloud shape*/
 .cloud {
-	width: 200px; height: 60px;
+	width: 20em; height: 6em;
 	background: #fff;
-	border-radius: 200px;
-	-moz-border-radius: 200px;
-	-webkit-border-radius: 200px;
+	border-radius: 20em;
+	-moz-border-radius: 20em;
+	-webkit-border-radius: 20em;
 	position: relative; 
 }
 
@@ -139,23 +139,30 @@ body {
 	content: '';
 	position: absolute; 
 	background: #fff;
-	width: 100px; height: 80px;
-	position: absolute; top: -15px; left: 10px;
-	border-radius: 100px;
-	-moz-border-radius: 100px;
-	-webkit-border-radius: 100px;
+	width: 10em; 
+	height: 8em;
+	position: absolute; 
+	top: -1.5em; 
+	left: 1.0em;
+	border-radius: 10em;
+	-moz-border-radius: 10em;
+	-webkit-border-radius: 10em;
 	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
 	-moz-transform: rotate(30deg);
 }
 
 .cloud:after {
-	width: 120px; height: 120px;
-	top: -55px; left: auto; right: 15px;
+	width: 12em; 
+	height: 12em;
+	top: -5.5em; 
+	left: auto; 
+	right: 1.5em;
 }
 
 /*Time to animate*/
 .x1 {
+	left: 5em;
 	-webkit-animation: moveclouds 15s linear infinite;
 	-moz-animation: moveclouds 15s linear infinite;
 	-o-animation: moveclouds 15s linear infinite;
@@ -164,7 +171,6 @@ body {
 /*variable speed, opacity, and position of clouds for realistic effect*/
 .x2 {
 	left: 80em;
-	
 	-webkit-transform: scale(0.6);
 	-moz-transform: scale(0.6);
 	transform: scale(0.6);
@@ -179,10 +185,10 @@ body {
 
 .x3 {
 	left: 80em; top: 2em;
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	transform: scale(0.8);
-	opacity: 0.8; /*opacity proportional to the size*/
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	transform: scale(0.7);
+	opacity: 0.7; /*opacity proportional to the size*/
 	-webkit-animation: moveclouds 12s linear infinite;
 	-moz-animation: moveclouds 12s linear infinite;
 	-o-animation: moveclouds 12s linear infinite;
@@ -190,10 +196,10 @@ body {
 
 .x4 {
 	left: 47em;
-	-webkit-transform: scale(0.75);
-	-moz-transform: scale(0.75);
-	transform: scale(0.75);
-	opacity: 0.75; /*opacity proportional to the size*/
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0.9; /*opacity proportional to the size*/
 	-webkit-animation: moveclouds 18s linear infinite;
 	-moz-animation: moveclouds 18s linear infinite;
 	-o-animation: moveclouds 18s linear infinite;
@@ -220,12 +226,11 @@ body {
 	100% {margin-left: -100em;}
 }
 @-o-keyframes moveclouds {
-<<<<<<< HEAD
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
+	0% {margin-left: 100em;}
+	100% {margin-left: -100em;}
 }
 
-#pButton{
+#pButton {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -236,11 +241,11 @@ body {
 	background-position: center;
 }
 
-.play{
+.play {
 	background: url('music_on.png') no-repeat;
 }
 
-.mute{
+.mute {
 	background: url('music_off.png') no-repeat;
 }
 
@@ -254,17 +259,14 @@ body {
 	left: -10em;
 	width: 5.2em;
 	height: 100%;
-	z-index: 10;
-
-	
+	z-index: 10;	
 }
 
 .gamestarted .pipe {
-	-webkit-animation: animPipe 7500ms linear;
-	animation: animPipe 7500ms linear;
+	-webkit-animation: animPipe 9s infinite linear;
+	animation: animPipe 9s infinite linear;
 }
-
-.upperPipe {
+.upperPipe1 {
 	position: absolute;
 	height: 20em;
 	top: 0;
@@ -274,7 +276,7 @@ body {
 	background-position: center;
 }
 
-.upperPipe:after {
+.upperPipe1:after {
    content: "";
    position: absolute;
    bottom: 0;
@@ -283,7 +285,7 @@ body {
    background-image: url('pipe-down.png');
 }
 
-.lowerPipe {
+.lowerPipe1 {
 	position: absolute;
 	height: 20em;
 	bottom: 0;
@@ -291,13 +293,46 @@ body {
 	background-image: url('pipe.png');
 	background-repeat: repeat-y;
 	background-position: center;
-
 }
 
+.lowerPipe1:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-up.png');
+}
+.upperPipe2 {
+	position: absolute;
+	height: 20em;
+	top: 0;
+	right: 2.5em;
+	background-image: url('pipe.png');
+	background-repeat: repeat-y;
+	background-position: center;
+}
 
+.upperPipe2:after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-down.png');
+}
 
-.lowerPipe:after
-{
+.lowerPipe2 {
+	position: absolute;
+	height: 20em;
+	bottom: 0;
+	right: 2.5em;
+	background-image: url('pipe.png');
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+.lowerPipe2:after {
    content: "";
    position: absolute;
    top: 0;
@@ -307,18 +342,18 @@ body {
 }
 
 @-webkit-keyframes animPipe {
-   0% { left: 900px; }
-   100% { left: -100px; }
+   0% { left: 90em; }
+   100% { left: -10em; }
 }
 @-moz-keyframes animPipe {
-   0% { left: 900px; }
-   100% { left: -100px; }
+   0% { left: 90em; }
+   100% { left: -10em; }
 }
 @-o-keyframes animPipe {
-   0% { left: 900px; }
-   100% { left: -100px; }
+   0% { left: 90em; }
+   100% { left: -10em; }
 }
 @keyframes animPipe {
-   0% { left: 900px; }
-   100% { left: -100px; }
+   0% { left: 90em; }
+   100% { left: -10em; }
 }

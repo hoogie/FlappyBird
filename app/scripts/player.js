@@ -90,13 +90,14 @@ window.Player = (function() {
 			stopper = 1;
 
 
-			this.game.begin();
 			
 			/*updatePipes();*/
 		}
 
 		if(stopper === 1) {
 					this.pos.y += delta * GRAVITY;
+					this.game.begin();
+
 		}
 
 
