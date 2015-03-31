@@ -73,6 +73,7 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
+		//console.log("kem ég inní þetta partí? inní player");
 		
 		//VELOCITY = GRAVITY * delta;
 		//this.pos.y += delta * VELOCITY;
@@ -89,7 +90,7 @@ window.Player = (function() {
 			this.pos.y -= delta * JUMP;
 			stopper = 1;
 
-
+			this.game.pipe.onFrame(delta);
 			
 			/*updatePipes();*/
 		}
@@ -104,6 +105,8 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
+		//console.log("this el css í player");
+		//console.log(this.el.css);
 		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 

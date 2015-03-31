@@ -10,7 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.pipe = new window.Pipe(this.el.find('#pipes'), this);
+		this.pipe = new window.Pipe(this.el.find('.Pipe'), this);
 		console.log("blableblú1");
 		console.log(this.pipe);
 		console.log("blableblú1");
@@ -35,12 +35,15 @@ window.Game = (function() {
 		var now = +new Date() / 1000,
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
+         
+
 
 		// Update game entities.
 		this.player.onFrame(delta);
 
 		//reyna að setja inn pípuhatt
-		//this.pipe.onFrame(delta);
+		this.pipe.onFrame(delta);
+		
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);

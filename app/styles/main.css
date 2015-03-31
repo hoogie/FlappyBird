@@ -11,6 +11,89 @@
 	-webkit-transform: translateZ(0);
 }
 
+
+/*.Pipe{
+	position: absolute;
+	height: 20em;
+	top: 0;
+	right: 2.5em;
+	background-image: url("pipe.png"); 
+	/*background-repeat: repeat-y;
+	background-position: center;
+
+
+}
+
+.Pipe .upperPipe {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 8em;
+	height: 6em;
+	background: url("pipe-up.png") no-repeat;
+	background-size: contain;
+	-webkit-transform: translateZ(0);
+}
+
+*/
+
+.Pipe {
+	position: absolute;
+	right: 0em;
+	width: 5.2em;
+	height: 100%;
+	z-index: 10;	
+}
+
+.Pipe .upperPipe {
+	position: absolute;
+	height: 20em;
+	top: -30em;
+	right: 0em;
+	background-image: url('pipe.png'); 
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+.Pipe .upperPipe:after {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-down.png');
+}
+
+.Pipe .lowerPipe {
+	position: absolute;
+	height: 20em;
+	bottom: 25em;
+	right: 0em;
+	background-image: url('pipe.png'); 
+	background-repeat: repeat-y;
+	background-position: center;
+}
+
+.Pipe .lowerPipe:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   width: 5.2em;
+   height: 2.6em;
+   background-image: url('pipe-up.png');
+}
+
+/*.Pipe:after {
+	position: absolute;
+	height: 20em;
+	top: 0;
+	right: 2.5em;
+	background-image: url('pipe-up.png'); //var bara pipe
+	background-repeat: repeat-y;
+	background-position: center;
+}*/
+
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;
@@ -254,7 +337,7 @@ body {
 	0% {margin-left: 100em;}
 	100% {margin-left: -100em;}
 }
-.pipe {
+/*.pipe {
 	position: absolute;
 	left: -10em;
 	width: 5.2em;
@@ -271,7 +354,7 @@ body {
 	height: 20em;
 	top: 0;
 	right: 2.5em;
-	background-image: url('pipe.png');
+	background-image: url('pipe-up.png'); //var bara pip
 	background-repeat: repeat-y;
 	background-position: center;
 }
@@ -339,7 +422,7 @@ body {
    width: 5.2em;
    height: 2.6em;
    background-image: url('pipe-up.png');
-}
+}*/
 
 @-webkit-keyframes animPipe {
    0% { left: 90em; }

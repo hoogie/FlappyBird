@@ -1,28 +1,46 @@
 window.Pipe = (function() {
    'use strict';
 
-   var pipeheight = 90;
-   var pipewidth = 52;
-   var INITIAL_POSITION_X = 30;
-   var INITIAL_POSITION_Y = 25;
+   var Controls = window.Controls;
+
+   //var pipeheight = 90;
+   //var pipewidth = 52;
+   var INITIAL_POSITION_X = 100;
+   var INITIAL_POSITION_Y = 500;
    var stopper = 0;
+
+   //var SPEEDpipe = 30; // * 10 pixels per second
+   var JUMPpipe = 50;
+   //var GRAVITYpipe = 10;
    //var pipe = new Array();
 
    var Pipe = function(el, game) {
-      console.log(Pipe);
       this.el = el;
       this.game = game;
       this.pos = { x: 0, y: 0 };
    };
 
 
-   Player.prototype.reset = function() {
+   Pipe.prototype.reset = function() {
+      console.log("this í reset");
+      console.log(this);
+      console.log("this í reset");
       this.pos.x = INITIAL_POSITION_X;
+      console.log("this.pos.x");
+      console.log(this.pos.x);
       this.pos.y = INITIAL_POSITION_Y;
+      console.log("this.pos.y");
+      console.log(this.pos.y);
       stopper = 0;
    };
 
    Pipe.prototype.onFrame = function(delta) {
+      
+      console.log("kem ég inní þetta partí? er inní pipe on Frame");
+      
+         this.pos.x -= delta * 2;
+         //stopper = 1;   
+         /*updatePipes();*/
       
       //VELOCITY = GRAVITY * delta;
       //this.pos.y += delta * VELOCITY;
@@ -31,27 +49,30 @@ window.Pipe = (function() {
       //this.pos.y += 
       // console.log(delta)
       
-      if(stopper === 0) {
+     /* if(stopper === 0) {
          this.pos.y = INITIAL_POSITION_Y;
       }
 
       if (Controls.keys.space) {
          this.pos.y -= delta * JUMP;
          stopper = 1;  
-         /*updatePipes();*/
+         //updatePipes();
       }
 
       if(stopper === 1) {
                this.pos.y += delta * GRAVITY;
                this.game.begin();
 
-      }
+      }*/
 
 
-      this.checkCollisionWithBounds();
+    /*this.checkCollisionWithBounds();
 
       // Update UI
+      console.log("this el css í pipie");
+      console.log(this.el.css);*/
       this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+
    };
 
   /* Pipe.prototype.checkCollisionWithBounds = function() {
