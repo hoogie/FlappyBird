@@ -255,9 +255,13 @@ body {
 	width: 5.2em;
 	height: 100%;
 	z-index: 10;
+
+	
+}
+
+.gamestarted .pipe {
 	-webkit-animation: animPipe 7500ms linear;
 	animation: animPipe 7500ms linear;
-	
 }
 
 .upperPipe {
@@ -268,9 +272,6 @@ body {
 	background-image: url('pipe.png');
 	background-repeat: repeat-y;
 	background-position: center;
-	-webkit-animation: animPipe 5s infinite linear;
-	-moz-animation: animPipe 5s infinite linear;
-	animation: animPipe 5s linear;
 }
 
 .upperPipe:after {
@@ -290,10 +291,10 @@ body {
 	background-image: url('pipe.png');
 	background-repeat: repeat-y;
 	background-position: center;
-	-webkit-animation: animPipe 5s infinite linear;
-	-moz-animation: animPipe 5s infinite linear;
-	animation: animPipe 5s linear;
+
 }
+
+
 
 .lowerPipe:after
 {

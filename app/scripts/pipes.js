@@ -5,9 +5,10 @@ window.Pipe = (function() {
 	var pipewidth = 52;
 	var pipe = new Array();
 
-})
+
 function updatePipes()
 {
+   console.log("update pipes kall");
    //Do any pipes need removal?
    $(".pipe").filter(function() { return $(this).position().left <= -100; }).remove()
    
@@ -19,4 +20,4 @@ function updatePipes()
    var newpipe = $('<div class="upperPipe" style="height: ' + topheight + 'em;"></div><div class="lowerPipe" style="height: ' + bottomheight + 'em;"></div></div>');
    $("#flyarea").append(newpipe);
    pipes.push(newpipe);
-}
+}});

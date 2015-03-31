@@ -43,12 +43,15 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
 		this.isPlaying = true;
 	};
+
+	Game.prototype.begin = function() {
+		this.el.addClass('gamestarted');
+	};	
 
 	/**
 	 * Resets the state of the game so a new game can be started.
