@@ -101,7 +101,6 @@ window.Player = (function() {
 	
 
 			flappysound.play();
-			$('.Player').hide();
 			$(".Player.nod").css('-webkit-animation-play-state', 'running');
 			/*updatePipes();*/
 
