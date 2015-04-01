@@ -6,7 +6,7 @@ function playAudio() {
 		music.muted = false;
 		music.play();
 		pButton.className = "play";
-	}
+		music.volume = 0.5;
 	else { 
 		music.muted = true;
 		pButton.className = "mute";

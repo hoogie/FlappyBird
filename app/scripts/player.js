@@ -44,6 +44,8 @@ window.Player = (function() {
 
 	var Controls = window.Controls;
 	var music = document.getElementById('music');
+	var deadsound = document.getElementById('deadsound');
+	var flappysound = document.getElementById('flappysound');
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
@@ -98,10 +100,10 @@ window.Player = (function() {
 			stopper = 1;
 
 			this.game.pipe.onFrame(delta);
-			
+			flappysound.play();
 			/*updatePipes();*/
 		}
-
+		
 		if(stopper === 1) {
 					this.pos.y += delta * GRAVITY;
 					//this.game.begin();
@@ -135,7 +137,9 @@ window.Player = (function() {
    		$(".Player-Wingup").hide();
    		$(".Player").removeClass('Player').addClass('DeadPlayer');
    		music.pause();
-
+   		flappysound.pause();
+   		deadsound.load();
+   		deadsound.play();
 	};
 
 	return Player;

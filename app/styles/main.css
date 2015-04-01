@@ -344,11 +344,12 @@ body {
 	background: url('music_off.png') no-repeat;
 }
 
-#music {
+.Audio {
 	display: none;
 	0% {margin-left: 100em;}
 	100% {margin-left: -100em;}
 }
+
 /*.pipe {
 	position: absolute;
 	left: -10em;
