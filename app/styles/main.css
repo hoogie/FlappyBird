@@ -23,7 +23,6 @@
 }
 
 .Player .nod {
-	background: url("bibi.png") no-repeat;
 	-webkit-animation: 0.4s nose alternate infinite;
 	-webkit-transform: translateZ(0);		
 }
