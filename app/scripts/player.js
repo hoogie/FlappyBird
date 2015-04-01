@@ -90,7 +90,6 @@ window.Player = (function() {
 
 		//this.pos.y += 
 		// console.log(delta)
-		
 		if(stopper === 0) {
 			this.pos.y = INITIAL_POSITION_Y;
 		}
@@ -101,9 +100,21 @@ window.Player = (function() {
 
 			this.game.pipe.onFrame(delta);
 			flappysound.play();
+			$('.Player').hide();
+			$(".Player.nod").css('-webkit-animation-play-state', 'running');
 			/*updatePipes();*/
+
 		}
 		
+		if (!Controls.keys.space){
+			console.log("ekki speis");
+			flappysound.pause();
+			$(".Player.nod").css('-webkit-animation-play-state', 'paused');
+			//$('.box').transition({ rotate: '45deg' });
+			//$("#player").transition({ y: movey + 'px', rotate: 90}, 1000, 'easeInOutCubic');
+			//$(".Player").removeClass('Player').addClass('NotFlyingPlayer');
+		}
+
 		if(stopper === 1) {
 					this.pos.y += delta * GRAVITY;
 					//this.game.begin();

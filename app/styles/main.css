@@ -22,6 +22,34 @@
 	-webkit-transform: translateZ(0);
 }
 
+.Player .nod {
+	background: url("bibi.png") no-repeat;
+	-webkit-animation: 0.4s nose alternate infinite;
+	-webkit-transform: translateZ(0);		
+}
+
+@-webkit-keyframes nose {
+	from
+	{
+		transform: rotateZ(0);
+	}
+	to
+	{
+		transform: rotateZ(-90deg);
+	}
+}
+
+/*.NotFlyingPlayer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 8em;
+	height: 6em;
+	background: url("bibi-notflying.png") no-repeat;
+	background-size: contain;
+	-webkit-transform: translateZ(0);
+}*/
+
 
 /*.Pipe{
 	position: absolute;
@@ -345,9 +373,12 @@ body {
 }
 
 .Audio {
-	display: none;
 	0% {margin-left: 100em;}
 	100% {margin-left: -100em;}
+}
+
+#deadsound, #flappysound, #music {
+	display: none;
 }
 
 /*.pipe {

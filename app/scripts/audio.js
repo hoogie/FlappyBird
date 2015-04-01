@@ -1,17 +1,17 @@
 var music = document.getElementById('music');
  
 function playAudio() {
-	
+	music.volume = 0.5;
 	if (music.muted) {
 		music.muted = false;
 		music.play();
 		pButton.className = "play";
-		music.volume = 0.5;
-	else { 
+	}else { 
 		music.muted = true;
 		pButton.className = "mute";
 	}
 }
+
 
 /*function toggleSound(img)
 {
