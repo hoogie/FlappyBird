@@ -10,10 +10,12 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.pipe = new window.Pipe(this.el.find('#pipe1'), this, 1);
-		this.pipe2 = new window.Pipe(this.el.find('#pipe2'), this, 2);
+		this.pipe = new window.Pipe(this.el.find('#pipe1upper'), this.el.find('#pipe1lower'), this, 1);
+		this.pipe2 = new window.Pipe(this.el.find('#pipe2upper'), this.el.find('#pipe2lower'), this, 2);
+		this.pipe3 = new window.Pipe(this.el.find('#pipe3upper'), this.el.find('#pipe3lower'), this, 3);
+		/*this.pipe2 = new window.Pipe(this.el.find('#pipe2'), this, 2);
 		this.pipe3 = new window.Pipe(this.el.find('#pipe3'), this, 3);
-		
+		*/
 
 		this.isPlaying = false;
 

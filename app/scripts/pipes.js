@@ -1,35 +1,46 @@
 window.Pipe = (function() {
    'use strict';
 
-   var Controls = window.Controls;
+   //var Controls = window.Controls;
 
    //var pipeheight = 90;
    //var pipewidth = 52;
    var INITIAL_POSITION_X = 0;
    var INITIAL_POSITION_Y = 0;
-   var stopper = 0;
-   var WIDTH = 110;
+   //var stopper = 0;
+   var WIDTH = 5;
 
    //var SPEEDpipe = 30; // * 10 pixels per second
-   var JUMPpipe = 50;
+   //var JUMPpipe = 50;
    //var GRAVITYpipe = 10;
    //var pipe = new Array();
+   function randomNumber(from,to)
+   {
+       return Math.floor(Math.random()*(to-from+1)+from);
+   }
 
-   var Pipe = function(el, game, vers) {
+   var Pipe = function(elupper, ellower, game, vers) {
 
-      this.el = el;
+      this.elupper = elupper;
+      this.ellower = ellower;
       //this.el2 = el;
       //this.el3 = el;
       this.game = game;
       this.vers = vers;
       if(this.vers === 1) {
-               this.pos = { x: 10, y: 0 };
+               var tempY = randomNumber(-4, 4);
+               this.elupper.pos = { x: 100, y: tempY };
+               this.ellower.pos = { x: 100, y: tempY - randomNumber(9, 13) };
       }
       if(this.vers === 2) {
-               this.pos = { x: 40, y: 0 };
+               var tempY = randomNumber(-4, 4);
+               this.elupper.pos = { x: 130, y: tempY };
+               this.ellower.pos = { x: 130, y: tempY - randomNumber(9, 13) };
       }
       if(this.vers === 3){
-               this.pos = { x: 70, y: 0 };
+               var tempY = randomNumber(-4, 4);
+               this.elupper.pos = { x: 160, y: tempY };
+               this.ellower.pos = { x: 160, y: tempY - randomNumber(9, 13) };
 
       }
       //this.el2.pos = { x: 4, y: 0 };
@@ -39,13 +50,7 @@ window.Pipe = (function() {
   
    };
 
-   /*var Pipe2 = function(el, game) {
-      console.log(Pipe2);
-      this.el = el;
-      this.game = game;
-      this.pos = { x: -4, y: 0 };
-  
-   };*/
+
 
    function randomNumber(from,to)
    {
@@ -53,25 +58,27 @@ window.Pipe = (function() {
    }
 
    Pipe.prototype.reset = function() {
-      //console.log("pipe reset");
+      console.log("pipe reset");
 
    
 
-      this.pos.x = 5;
+      this.pos.x = 100;
       this.pos.y = randomNumber(-4, 4); //todo: randomize !!!
       //console.log(this.pos.y);
-      stopper = 0;
+      //stopper = 0;
    };
 
    Pipe.prototype.recycle = function() {
       //console.log("fer inní recygcle");
       //console.log(this.pos.x);
-      if(this.pos.x < -WIDTH) {
+      if(this.elupper.pos.x < -WIDTH) {
          //console.log("inní 1");
          //console.log(this.vers);
          //return this.reset();
-         this.pos.x = 5;
-         this.pos.y = randomNumber(-4, 4);
+         this.elupper.pos.x = 100;
+         this.elupper.pos.y = randomNumber(-4, 4);
+         this.ellower.pos.x = 100;
+         this.ellower.pos.y = this.elupper.pos.y - randomNumber(9, 13);
       }
      /* if(this.el2.pos.x < -WIDTH) {
          console.log("inní 2");
@@ -89,96 +96,65 @@ window.Pipe = (function() {
 
    Pipe.prototype.onFrame = function(delta) {
       
-      //console.log("kem ég inní þetta partí? er inní pipe on Frame");
-      this.pos.x -= delta * 30;
-      //console.log(this.vers);
-         //this.el1.pos.x -= delta * 10;
-         //this.el2.pos.x -= delta * 5;
-         //this.el3.pos.x -= delta * 3;
-
-         /* if(this.vers === 1) {
-            console.log("vers 1, hraði 10");
-            console.log(this.vers);
-            console.log("vers 1, hraði 10");
-
-               this.el1.pos.x -= delta * 1;
-
-            }
-
-          if(this.vers === 2) {
-            console.log("vers 2, hraði 5");
-                console.log(this.vers);
-                console.log("vers 2, hraði 10");
-
-               this.el1.pos.x -= delta * 1;
-
-            }
-         else {
-                this.el1.pos.x -= delta * 3;
-                console.log("vers 3, hraði 5");
-                console.log(this.vers);
-                console.log("vers 3, hraði 10");
-
-
-            }*/
-         //Pipe2.pos.x -= delta * 10;
-         //stopper = 1;   
-         /*updatePipes();*/
-         /*if(this.pos.x < -WIDTH){
-            return this.reset();
-         }*/
-         //console.log("element1");
-         //console.log(this.el1);
+    
+      this.elupper.pos.x -= delta * 20;
+      this.ellower.pos.x -= delta * 20;
+     
          this.recycle();
       
-      //VELOCITY = GRAVITY * delta;
-      //this.pos.y += delta * VELOCITY;
-
-
-      //this.pos.y += 
-      // console.log(delta)
-      
-     /* if(stopper === 0) {
-         this.pos.y = INITIAL_POSITION_Y;
-      }
-
-      if (Controls.keys.space) {
-         this.pos.y -= delta * JUMP;
-         stopper = 1;  
-         //updatePipes();
-      }
-
-      if(stopper === 1) {
-               this.pos.y += delta * GRAVITY;
-               this.game.begin();
-
-      }*/
-
-
-    /*this.checkCollisionWithBounds();
-
-
-      // Update UI
-      console.log("this el css í pipie");
-      console.log(this.el.css);*/
+    
       this.checkCollisionWithPipe();
-      this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-      //this.el2.css('transform', 'translate(' + this.el2.pos.x + 'em, ' + this.el2.pos.y + 'em)');
-      //this.el3.css('transform', 'translate(' + this.el3.pos.x + 'em, ' + this.el3.pos.y + 'em)');
-
-      //prump
+      this.elupper.css('transform', 'translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
+      this.ellower.css('transform', 'translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+     
    };
 
    Pipe.prototype.checkCollisionWithPipe = function() {
-      console.log(this.pos.x);
-      console.log("this.pos.x");
-      console.log(this.game.player.pos.x);
-      console.log("this.gamel.player");
-      if(/*this.pos.x <= this.game.player.pos.x &&*/ this.pos.y <= this.game.player.pos.y ) {
-        //return this.game.gameover();
-        console.log("chek collision");
-       }
+     if(this.vers === 1) {
+         console.log(this.ellower.pos.x);
+         console.log("this.pos.x");
+         console.log(this.game.player.pos.x);
+
+         console.log("this.gamel.player");
+      }
       
+
+      //player height = 6, width = 8
+      //pipuhattar  width: 5.2em; height: 2.6em;
+      //pipur width 5.2 og height 20
+     if(this.vers === 1 && (this.elupper.pos.x > this.game.player.pos.x)) {
+         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y)) {
+                console.log("----upperbumb----------");
+
+                  this.game.player.playerDead();
+                  return this.game.gameover()
+         }
+        /* if((this.ellower.pos.x < this.game.player.pos.x + 8) && (this.ellower.pos.y < this.game.player.pos.y + 6))
+         {
+            console.log("----lowerbumb----------");
+            this.game.player.playerDead();
+            //return this.game.gameOver();
+         }*/
+      }
+    /*  if(this.vers === 2) {
+         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y)) {
+                console.log("--------------------------------------------------------------------");
+
+                  this.game.player.playerDead();
+        //return this.game.gameover();
+        //this.game.player.gameOver();
+         }
+      }
+      if(this.vers === 2) {
+         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y)) {
+                console.log("--------------------------------------------------------------------");
+
+                  this.game.player.playerDead();
+        //return this.game.gameover();
+        //this.game.player.gameOver();
+         }
+      }*/
+
       };
 
 

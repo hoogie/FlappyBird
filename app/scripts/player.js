@@ -97,7 +97,7 @@ window.Player = (function() {
 			this.pos.y -= delta * JUMP;
 			stopper = 1;
 
-			this.game.pipe.onFrame(delta);
+			//this.game.pipe.onFrame(delta);
 			
 			/*updatePipes();*/
 		}
