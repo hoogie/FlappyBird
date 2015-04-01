@@ -275,6 +275,8 @@ body {
 	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
 	-moz-transform: rotate(30deg);
+	-webkit-transform: translateZ(0);
+
 }
 
 .cloud:after {
