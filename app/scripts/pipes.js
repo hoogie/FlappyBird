@@ -53,7 +53,7 @@ window.Pipe = (function() {
    }
 
    Pipe.prototype.reset = function() {
-      console.log("pipe reset");
+      //console.log("pipe reset");
 
    
 
@@ -65,9 +65,9 @@ window.Pipe = (function() {
 
    Pipe.prototype.recycle = function() {
       //console.log("fer inní recygcle");
-      console.log(this.pos.x);
+      //console.log(this.pos.x);
       if(this.pos.x < -WIDTH) {
-         console.log("inní 1");
+         //console.log("inní 1");
          //console.log(this.vers);
          //return this.reset();
          this.pos.x = 5;
@@ -91,7 +91,7 @@ window.Pipe = (function() {
       
       //console.log("kem ég inní þetta partí? er inní pipe on Frame");
       this.pos.x -= delta * 30;
-      console.log(this.vers);
+      //console.log(this.vers);
          //this.el1.pos.x -= delta * 10;
          //this.el2.pos.x -= delta * 5;
          //this.el3.pos.x -= delta * 3;
@@ -157,9 +157,11 @@ window.Pipe = (function() {
 
     /*this.checkCollisionWithBounds();
 
+
       // Update UI
       console.log("this el css í pipie");
       console.log(this.el.css);*/
+      this.checkCollisionWithPipe();
       this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
       //this.el2.css('transform', 'translate(' + this.el2.pos.x + 'em, ' + this.el2.pos.y + 'em)');
       //this.el3.css('transform', 'translate(' + this.el3.pos.x + 'em, ' + this.el3.pos.y + 'em)');
@@ -167,14 +169,27 @@ window.Pipe = (function() {
       //prump
    };
 
-  /* Pipe.prototype.checkCollisionWithBounds = function() {
-      if (this.pos.x < 0 ||
+   Pipe.prototype.checkCollisionWithPipe = function() {
+      console.log(this.pos.x);
+      console.log("this.pos.x");
+      console.log(this.game.player.pos.x);
+      console.log("this.gamel.player");
+      if(/*this.pos.x <= this.game.player.pos.x &&*/ this.pos.y <= this.game.player.pos.y ) {
+        //return this.game.gameover();
+        console.log("chek collision");
+       }
+      
+      };
+
+
+
+     /* if (this.pos.x < 0 ||
          this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
          this.pos.y < 0 ||
          this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
          return this.game.gameover();
-      }
-   };*/
+      } */
+   
 
    return Pipe;
 
