@@ -97,8 +97,9 @@ window.Player = (function() {
 		if (Controls.keys.space) {
 			this.pos.y -= delta * JUMP;
 			stopper = 1;
+			//this.game.pipe.onFrame(delta);
+	
 
-			this.game.pipe.onFrame(delta);
 			flappysound.play();
 			$('.Player').hide();
 			$(".Player.nod").css('-webkit-animation-play-state', 'running');
