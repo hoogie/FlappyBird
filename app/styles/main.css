@@ -66,6 +66,7 @@
 	background-position: center;
 }
 
+
 .Pipe .upperPipe:after {
    content: "";
    position: absolute;
