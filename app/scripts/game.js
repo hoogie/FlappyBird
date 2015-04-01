@@ -74,7 +74,9 @@ window.Game = (function() {
 		//console.log(this.pipe);
 
 		this.player.reset();
-		//this.pipe.reset();
+		this.pipe.reset();
+		this.pipe2.reset();
+		this.pipe3.reset();
 	};
 
 	/**

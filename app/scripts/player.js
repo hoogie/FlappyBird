@@ -75,7 +75,7 @@ window.Player = (function() {
 		$(".cloud").css('-webkit-animation-play-state', 'running');
 		$(".Player-Wingup").show();
    		$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player');
-
+   		//this.pipe.reset();
    		music.play();
 	};
 
