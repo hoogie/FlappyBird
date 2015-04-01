@@ -10,10 +10,10 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.pipe = new window.Pipe(this.el.find('.Pipe'), this);
-		console.log("blableblú1");
-		console.log(this.pipe);
-		console.log("blableblú1");
+		this.pipe = new window.Pipe(this.el.find('#pipe1'), this, 1);
+		this.pipe2 = new window.Pipe(this.el.find('#pipe2'), this, 2);
+		this.pipe3 = new window.Pipe(this.el.find('#pipe3'), this, 3);
+		
 
 		this.isPlaying = false;
 
@@ -43,6 +43,8 @@ window.Game = (function() {
 
 		//reyna að setja inn pípuhatt
 		this.pipe.onFrame(delta);
+		this.pipe2.onFrame(delta);
+		this.pipe3.onFrame(delta);
 		
 
 		// Request next frame.
@@ -68,8 +70,8 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
-		console.log(this.player);
-		console.log(this.pipe);
+		//console.log(this.player);
+		//console.log(this.pipe);
 
 		this.player.reset();
 		//this.pipe.reset();
