@@ -101,7 +101,7 @@ window.Player = (function() {
 
 		}
 
-
+ 		//prump
 		this.checkCollisionWithBounds();
 
 		// Update UI

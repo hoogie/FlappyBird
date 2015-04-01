@@ -72,7 +72,7 @@ window.Pipe = (function() {
       console.log("this el css í pipie");
       console.log(this.el.css);*/
       this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
-
+      //prump
    };
 
   /* Pipe.prototype.checkCollisionWithBounds = function() {
