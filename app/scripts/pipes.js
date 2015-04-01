@@ -174,7 +174,7 @@ window.Pipe = (function() {
       console.log("this.pos.x");
       console.log(this.game.player.pos.x);
       console.log("this.gamel.player");
-      if(this.pos.x <= this.game.player.pos.x && this.pos.y <= this.game.player.pos.y ) {
+      if(/*this.pos.x <= this.game.player.pos.x &&*/ this.pos.y <= this.game.player.pos.y ) {
         //return this.game.gameover();
         console.log("chek collision");
        }
