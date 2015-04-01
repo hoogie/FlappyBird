@@ -127,7 +127,7 @@ window.Player = (function() {
 		// Update UI
 		//console.log("this el css í player");
 		//console.log(this.el.css);
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
