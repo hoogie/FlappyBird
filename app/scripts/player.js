@@ -43,6 +43,7 @@ window.Player = (function() {
 	'use strict';
 
 	var Controls = window.Controls;
+	var music = document.getElementById('music');
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
@@ -70,6 +71,12 @@ window.Player = (function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
 		stopper = 0;
+		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'running');
+		$(".cloud").css('-webkit-animation-play-state', 'running');
+		$(".Player-Wingup").show();
+   		$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player');
+
+   		music.play();
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -115,8 +122,20 @@ window.Player = (function() {
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y < 0 ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			this.playerDead();
 			return this.game.gameover();
 		}
+	};
+
+	Player.prototype.playerDead = function() {
+		//$(".animated").css('animation-play-state', 'paused');
+		console.log("dead"); 
+   		$(".cloud").css('-webkit-animation-play-state', 'paused');
+   		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'paused');
+   		$(".Player-Wingup").hide();
+   		$(".Player").removeClass('Player').addClass('DeadPlayer');
+   		music.pause();
+
 	};
 
 	return Player;

@@ -11,6 +11,17 @@
 	-webkit-transform: translateZ(0);
 }
 
+.DeadPlayer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 8em;
+	height: 6em;
+	background: url("bibi-dead.png") no-repeat;
+	background-size: contain;
+	-webkit-transform: translateZ(0);
+}
+
 
 /*.Pipe{
 	position: absolute;
