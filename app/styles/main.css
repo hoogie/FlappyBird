@@ -78,7 +78,7 @@
 	z-index: 10;	
 }
 
-.Pipe .upperPipe {
+.upperPipe {
 	position: absolute;
 	height: 20em;
 	top: -30em;
@@ -90,7 +90,7 @@
 }
 
 
-.Pipe .upperPipe:after {
+.upperPipe:after {
    content: "";
    position: absolute;
    bottom: 0;
@@ -99,7 +99,7 @@
    background-image: url('pipe-down.png');
 }
 
-.Pipe .lowerPipe {
+.lowerPipe {
 	position: absolute;
 	height: 20em;
 	bottom: 25em;
@@ -110,7 +110,7 @@
 	-webkit-transform: translateZ(0);
 }
 
-.Pipe .lowerPipe:after {
+.lowerPipe:after {
    content: "";
    position: absolute;
    top: 0;
@@ -152,7 +152,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 20em;
+	margin-top: 15em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -167,6 +167,21 @@
 body {
 	background: black;
 }
+.Scoreboard-pointsText {
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 2.4em;
+	color: white;
+}
+.Scoreboard-points {
+	margin-top: 5em;
+	font-size: inherit;
+	padding: 0.4em 1.5em;
+	border: 0.2em solid white;
+	background: none;
+	
+
+}
+
 .browsehappy {
 	margin: 0.2em 0;
 	background: ?#?ccc?;
