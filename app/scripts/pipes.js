@@ -102,8 +102,8 @@ window.Pipe = (function() {
       
     
       this.checkCollisionWithPipe();
-      this.elupper.css('transform', 'translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
-      this.ellower.css('transform', 'translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+      this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
+      this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
      
    };
 

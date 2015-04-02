@@ -91,6 +91,7 @@
 	background-image: url('pipe.png'); 
 	background-repeat: repeat-y;
 	background-position: center;
+	-webkit-transform: translateZ(0);
 }
 
 
@@ -111,6 +112,7 @@
 	background-image: url('pipe.png'); 
 	background-repeat: repeat-y;
 	background-position: center;
+	-webkit-transform: translateZ(0);
 }
 
 .lowerPipe:after {
@@ -237,6 +239,7 @@ body {
 
 .River .wave.bottom-wave {
 	-webkit-animation:waves 10s infinite linear;
+	-webkit-transform: translateZ(0);
 }
 
 .Player-Wingup {
@@ -287,6 +290,8 @@ body {
 	-webkit-transform: rotate(30deg);
 	transform: rotate(30deg);
 	-moz-transform: rotate(30deg);
+	-webkit-transform: translateZ(0);
+
 }
 
 .cloud:after {
@@ -303,6 +308,7 @@ body {
 	-webkit-animation: moveclouds 15s linear infinite;
 	-moz-animation: moveclouds 15s linear infinite;
 	-o-animation: moveclouds 15s linear infinite;
+	-webkit-transform: translateZ(0);
 }
 
 /*variable speed, opacity, and position of clouds for realistic effect*/
@@ -318,6 +324,7 @@ body {
 	-webkit-animation: moveclouds 20s linear infinite;
 	-moz-animation: moveclouds 20s linear infinite;
 	-o-animation: moveclouds 20s linear infinite;
+	-webkit-transform: translateZ(0);
 }
 
 .x3 {
@@ -329,6 +336,7 @@ body {
 	-webkit-animation: moveclouds 12s linear infinite;
 	-moz-animation: moveclouds 12s linear infinite;
 	-o-animation: moveclouds 12s linear infinite;
+	-webkit-transform: translateZ(0);
 }
 
 .x4 {
@@ -340,6 +348,7 @@ body {
 	-webkit-animation: moveclouds 18s linear infinite;
 	-moz-animation: moveclouds 18s linear infinite;
 	-o-animation: moveclouds 18s linear infinite;
+	-webkit-transform: translateZ(0);
 }
 
 .x5 {
@@ -352,6 +361,7 @@ body {
 	-webkit-animation: moveclouds 30s linear infinite;
 	-moz-animation: moveclouds 30s linear infinite;
 	-o-animation: moveclouds 30s linear infinite;
+	-webkit-transform: translateZ(0);
 }
 
 @-webkit-keyframes moveclouds {
