@@ -6,26 +6,21 @@
 	left: 0;
 	width: 8em;
 	height: 6em;
-	background: url("bibi.png") no-repeat;
-	background-size: contain;
 	-webkit-transform: translateZ(0);
 }
 
-.DeadPlayer{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 8em;
-	height: 6em;
+.Player .DeadPlayer{
 	background: url("bibi-dead.png") no-repeat;
 	background-size: contain;
 	-webkit-transform: translateZ(0);
 }
 
 .Player .nod {
-	-webkit-animation: 0.4s nose alternate infinite;
-	-webkit-transform: translateZ(0);		
+	background: url("bibi.png") no-repeat;
+	background-size: contain;
+	-webkit-animation: nose 0.4s infinite
 }
+
 
 @-webkit-keyframes nose {
 	from
@@ -34,7 +29,7 @@
 	}
 	to
 	{
-		transform: rotateZ(-90deg);
+		transform: rotateZ(-45deg);
 	}
 }
 

@@ -86,8 +86,14 @@ window.Player = (function() {
 		
 		//VELOCITY = GRAVITY * delta;
 		//this.pos.y += delta * VELOCITY;
-
-
+		/*$( ".Player" ).animate({
+		    rotateX: "90",
+		    left: "+=50",
+		    height: "toggle"
+  		}, 5000, function() {
+    // Animation complete.
+  	});*/
+	
 		//this.pos.y += 
 		// console.log(delta)
 		if(stopper === 0) {
@@ -97,20 +103,18 @@ window.Player = (function() {
 		if (Controls.keys.space) {
 			this.pos.y -= delta * JUMP;
 			stopper = 1;
-			//this.game.pipe.onFrame(delta);
-	
 
 			flappysound.play();
 			$(".Player.nod").css('-webkit-animation-play-state', 'running');
 			/*updatePipes();*/
-
 		}
 		
 		if (!Controls.keys.space){
 			console.log("ekki speis");
-			flappysound.pause();
+			flappysound.pause
 			$(".Player.nod").css('-webkit-animation-play-state', 'paused');
-			//$('.box').transition({ rotate: '45deg' });
+	
+						//$('.box').transition({ rotate: '45deg' });
 			//$("#player").transition({ y: movey + 'px', rotate: 90}, 1000, 'easeInOutCubic');
 			//$(".Player").removeClass('Player').addClass('NotFlyingPlayer');
 		}
@@ -146,7 +150,7 @@ window.Player = (function() {
    		$(".cloud").css('-webkit-animation-play-state', 'paused');
    		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'paused');
    		$(".Player-Wingup").hide();
-   		$(".Player").removeClass('Player').addClass('DeadPlayer');
+   		$(".Player .nod").removeClass('Player.nod').addClass('Player.DeadPlayer');
    		music.pause();
    		flappysound.pause();
    		deadsound.load();
