@@ -93,6 +93,7 @@ window.Player = (function() {
    		//$(".Player").addClass('Player');
    		//this.pipe.reset();
    		music.play();
+   		flappysound.play();
 	};
 
 	Player.prototype.onFrame = function(delta) {
