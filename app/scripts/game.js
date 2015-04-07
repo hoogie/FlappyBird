@@ -38,7 +38,7 @@ window.Game = (function() {
 				delta = now - this.lastFrame;
 		this.lastFrame = now;
          
-0
+
 
 		// Update game entities.
 		this.player.onFrame(delta);
@@ -66,7 +66,7 @@ window.Game = (function() {
 
 	Game.prototype.begin = function() {
 		this.el.addClass('gamestarted');
-	};	
+	};
 
 	/**
 	 * Resets the state of the game so a new game can be started.
@@ -86,7 +86,7 @@ window.Game = (function() {
 	
 		scoreNow = score;
 
-	}
+	};
 	/**
 	 * Signals that the game is over.
 	 */
@@ -104,7 +104,7 @@ window.Game = (function() {
 					that.start();
 				});
 		
-		document.getElementById("stigafjoldi").innerHTML = scoreNow;
+		document.getElementById('stigafjoldi').innerHTML = scoreNow;
 	};
 
 	/**

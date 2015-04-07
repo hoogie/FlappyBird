@@ -10,52 +10,52 @@
 }*/
 
 window.Pipe = (function() {
-   'use strict';
+    'use strict';
 
-   var POINTS             = 0;
-   var PIPE_WIDTH         = 5.2;
-   var OPENING_HEIGHT     = 13; //hafa 10.5
-   var MIN_PIPE_HEIGHT    = 15;
-   var MAX_PIPE_HEIGHT    = 25;
-   var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
-   var counter            = 0;
-   var counter2           = 0;
-   var counter3           = 0;
-   var score              = 0;
-   var START_Y            = -20;
-   var GAMESTARTED        = 0;
+    var POINTS             = 0;
+    var PIPE_WIDTH         = 5.2;
+    var OPENING_HEIGHT     = 13; //hafa 10.5
+    var MIN_PIPE_HEIGHT    = 15;
+    var MAX_PIPE_HEIGHT    = 25;
+    var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
+    var counter            = 0;
+    var counter2           = 0;
+    var counter3           = 0;
+    var score              = 0;
+    var START_Y            = -20;
+    var GAMESTARTED        = 0;
 
-   function randomNumber(from,to) {
-       return Math.floor(Math.random()*(to-from+1)+from);
-   }
+    function randomNumber(from,to) {
+        return Math.floor(Math.random()*(to-from+1)+from);
+    }
 
-   var Pipe = function(elupper, ellower, game, vers) {
+    var Pipe = function(elupper, ellower, game, vers) {
 
-      this.elupper = elupper;
-      this.ellower = ellower;
-      this.game    = game;
-      this.vers    = vers;
+        this.elupper = elupper;
+        this.ellower = ellower;
+        this.game    = game;
+        this.vers    = vers;
 
-      score = 0;
+        score = 0;
 
-      var x = 100;
-      if (this.vers === 2) {
-         x = 130;
-      } else if (this.vers === 3) {
-         x = 160;
-      }
+        var x = 100;
+        if (this.vers === 2) {
+            x = 130;
+        } else if (this.vers === 3) {
+            x = 160;
+        }
 
-      var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
-      this.elupper.height = tempY;
-      this.elupper.pos = { x: x, y: START_Y };
-      this.elupper.css("height", tempY + "em");
+        var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+        this.elupper.height = tempY;
+        this.elupper.pos = { x: x, y: START_Y };
+        this.elupper.css('height', tempY + 'em');
 
-      var lowerY = START_Y + tempY + OPENING_HEIGHT;
-      this.ellower.pos = { x: x, y: lowerY };
-      this.ellower.css("height", MAX_LOWER_HEIGHT + "em");
+        var lowerY = START_Y + tempY + OPENING_HEIGHT;
+        this.ellower.pos = { x: x, y: lowerY };
+        this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');
 
       
-   };
+    };
 
 /*
 
@@ -64,40 +64,40 @@ window.Pipe = (function() {
        return Math.floor(Math.random()*(to-from+1)+from);
    }
 */
-   Pipe.prototype.reset = function() {
-      counter = 0;
-      counter2 = 0;
-      counter3 = 0;
-      score = 0;
-      GAMESTARTED = 0;
-      var x = 100;
-      if (this.vers === 2) {
-         x = 130;
-      } else if (this.vers === 3) {
-         x = 160;
-      }
+    Pipe.prototype.reset = function() {
+            counter = 0;
+            counter2 = 0;
+            counter3 = 0;
+            score = 0;
+            GAMESTARTED = 0;
+            var x = 100;
+            if (this.vers === 2) {
+                x = 130;
+            } else if (this.vers === 3) {
+                x = 160;
+            }
       
-      var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
-      this.elupper.height = tempY;
-      this.elupper.pos = { x: x, y: START_Y };
-      this.elupper.css("height", tempY + "em");
+            var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+            this.elupper.height = tempY;
+            this.elupper.pos = { x: x, y: START_Y };
+            this.elupper.css('height', tempY + 'em');
 
-      var lowerY = START_Y + tempY + OPENING_HEIGHT;
-      this.ellower.pos = { x: x, y: lowerY };
-      this.ellower.css("height", MAX_LOWER_HEIGHT + "em");
-   };
+            var lowerY = START_Y + tempY + OPENING_HEIGHT;
+            this.ellower.pos = { x: x, y: lowerY };
+            this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');
+        };
    //var tempGap = 10;
 
-   Pipe.prototype.reproduce = function() {
+    Pipe.prototype.reproduce = function() {
  
-      if(this.elupper.pos.x < -5) {
-         counter = 0;
-         counter2 = 0;
-         counter3 = 0;
-         var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
-         this.elupper.height = tempY;
-         this.elupper.pos.x = 100;
-         this.elupper.css("height", tempY + "em");
+        if(this.elupper.pos.x < -5) {
+            counter = 0;
+            counter2 = 0;
+            counter3 = 0;
+            var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+            this.elupper.height = tempY;
+            this.elupper.pos.x = 100;
+            this.elupper.css('height', tempY + 'em');
          this.ellower.pos.x = 100;
          this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT; 
 
