@@ -88,7 +88,8 @@ window.Player = (function() {
    		//$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
    		//$(".DeadPlayer").removeClass('DeadPlayer');	
    		//$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player nod');
-   		$(".Player").show();
+   		$(".Player.nod").css('-webkit-animation-play-state', 'running');
+   		$(".Wingup").css('-webkit-animation-play-state', 'running');
    		//$(".Player").addClass('Player');
    		//this.pipe.reset();
    		music.play();
