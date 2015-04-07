@@ -13,8 +13,6 @@ window.Pipe = (function() {
    'use strict';
 
    var POINTS             = 0;
-   var INITIAL_POSITION_X = 0;
-   var INITIAL_POSITION_Y = 0;
    var PIPE_WIDTH         = 5.2;
    var OPENING_HEIGHT     = 13; //hafa 10.5
    var MIN_PIPE_HEIGHT    = 15;
@@ -38,6 +36,8 @@ window.Pipe = (function() {
       this.game    = game;
       this.vers    = vers;
 
+      score = 0;
+
       var x = 100;
       if (this.vers === 2) {
          x = 130;
@@ -47,13 +47,14 @@ window.Pipe = (function() {
 
       var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
       this.elupper.height = tempY;
-      console.log(this.elupper.height, " el upper = temp");
       this.elupper.pos = { x: x, y: START_Y };
       this.elupper.css("height", tempY + "em");
 
       var lowerY = START_Y + tempY + OPENING_HEIGHT;
       this.ellower.pos = { x: x, y: lowerY };
       this.ellower.css("height", MAX_LOWER_HEIGHT + "em");
+
+      
    };
 
 /*
@@ -75,10 +76,9 @@ window.Pipe = (function() {
       } else if (this.vers === 3) {
          x = 160;
       }
-
+      
       var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
       this.elupper.height = tempY;
-      console.log(this.elupper.height, " el upper = temp");
       this.elupper.pos = { x: x, y: START_Y };
       this.elupper.css("height", tempY + "em");
 
@@ -109,7 +109,7 @@ window.Pipe = (function() {
 
    Pipe.prototype.onFrame = function(delta) {
 
-
+      document.getElementById("currentScore").innerHTML = score;
       if (Controls.keys.space) {
          GAMESTARTED = 1;
          
@@ -118,6 +118,9 @@ window.Pipe = (function() {
       if(GAMESTARTED === 1) {
          this.elupper.pos.x -= delta * 20;
          this.ellower.pos.x -= delta * 20;
+         /*var pipeVisible = this.elupper.find('.Pipe .upperPipe');
+         pipeVisible
+            .addClass('is-visible')*/
      
          this.reproduce();
           
@@ -154,13 +157,15 @@ window.Pipe = (function() {
       var playerHeight = 6;
       var elUpperHeight = this.elupper.height;
       var elLowerHeight = this.ellower.height;
- 
+
+  
 
       if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
          playerX + playerWidth > ellowerX && playerY + 6 > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
          this.game.player.playerDead();
          return this.game.gameover();
       }
+
       if(playerX > elupperX + PIPE_WIDTH) {
          if(this.vers === 1 && counter === 0) {
             counter = 1;
@@ -175,7 +180,8 @@ window.Pipe = (function() {
             score += 1;
          }
       }
-      console.log(score, " score");
+      this.game.getScore(score);
+      
 
    };
 

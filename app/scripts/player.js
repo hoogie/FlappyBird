@@ -182,7 +182,7 @@ window.Player = (function() {
 
 		return false;
 	};*/
-
+	
 	Player.prototype.playerDead = function() {
 		//$(".animated").css('animation-play-state', 'paused');
 		console.log("dead"); 

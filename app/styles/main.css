@@ -10,6 +10,12 @@
 	-webkit-transform: translateZ(0);
 }
 
+.Score{
+	position: absolute;
+	font-weight: bold;
+	font-size: 3em;
+	z-index: 50;
+}
 .Wingup {
 	position: absolute;
 	background: url("wingup.png") no-repeat;
@@ -156,7 +162,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 15em;
+	margin-top: 8em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -171,11 +177,19 @@
 body {
 	background: black;
 }
-.Scoreboard-pointsText {
+/*.Scoreboard-pointsText {
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 2.4em;
+	color: white;
+}*/
+
+#stigafjoldi {
+
 	font-family: 'Rubik Mono One', sans-serif;
 	font-size: 2.4em;
 	color: white;
 }
+
 .Scoreboard-points {
 	margin-top: 5em;
 	font-size: inherit;

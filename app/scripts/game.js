@@ -81,12 +81,18 @@ window.Game = (function() {
 		
 	};
 
+	var scoreNow = 0;
+	Game.prototype.getScore = function(score) {
+	
+		scoreNow = score;
+
+	}
 	/**
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-
+		
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');
@@ -97,6 +103,8 @@ window.Game = (function() {
 					scoreboardEl.removeClass('is-visible');
 					that.start();
 				});
+		
+		document.getElementById("stigafjoldi").innerHTML = scoreNow;
 	};
 
 	/**
