@@ -6,30 +6,57 @@
 	left: 0;
 	width: 8em;
 	height: 6em;
+	z-index: 0;
 	-webkit-transform: translateZ(0);
 }
 
-.Player .DeadPlayer{
+.Wingup {
+	position: absolute;
+	background: url("wingup.png") no-repeat;
+	background-size: contain;
+	z-index: 1;
+	-webkit-animation: 0.4s flap alternate infinite;
+	-webkit-transform: translateZ(0);	
+}
+
+@-webkit-keyframes flap {
+	from
+	{
+		transform: rotateX(0);
+	}
+	to
+	{
+		transform: rotateX(180deg);
+	}
+}
+
+.DeadPlayer{
+	top: 0;
+	left: 0;
+	width: 8em;
+	height: 6em;
 	background: url("bibi-dead.png") no-repeat;
 	background-size: contain;
-	-webkit-transform: translateZ(0);
 }
 
 .Player .nod {
 	background: url("bibi.png") no-repeat;
 	background-size: contain;
-	-webkit-animation: nose 0.4s infinite
+	/*-webkit-transform: perspective;*/
+	-webkit-animation: nose 0.2s ease-in infinite alternate;;
 }
 
 
 @-webkit-keyframes nose {
-	from
-	{
-		transform: rotateZ(0);
+	0% {
+		-webkit-transform: rotate(0deg) translate3d(0px, 0px, 0px);
 	}
-	to
+	50%{
+		-webkit-transform: rotate(-30deg) translate3d(0em, 0em, 0em);
+	}
+	100%
 	{
-		transform: rotateZ(-45deg);
+		-webkit-transform: rotate(0deg) translate3d(0px, 0px, 0px);
 	}
 }
 
@@ -237,28 +264,7 @@ body {
 	-webkit-transform: translateZ(0);
 }
 
-.Player-Wingup {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 8em;
-	height: 6em;
-	background: url("wingup.png") no-repeat;
-	background-size: contain;
-	-webkit-animation: 0.4s flap alternate infinite;
-	-webkit-transform: translateZ(0);	
-}
 
-@-webkit-keyframes flap {
-	from
-	{
-		transform: rotateX(0);
-	}
-	to
-	{
-		transform: rotateX(180deg);
-	}
-}
 
 /*Time to finalise the cloud shape*/
 .cloud {

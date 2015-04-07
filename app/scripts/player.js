@@ -75,8 +75,11 @@ window.Player = (function() {
 		stopper = 0;
 		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'running');
 		$(".cloud").css('-webkit-animation-play-state', 'running');
-		$(".Player-Wingup").show();
-   		$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player');
+   		//$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
+   		//$(".DeadPlayer").removeClass('DeadPlayer');	
+   		$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player nod');
+   		$(".Player").show();
+   		//$(".Player").addClass('Player');
    		//this.pipe.reset();
    		music.play();
 	};
@@ -113,6 +116,7 @@ window.Player = (function() {
 			console.log("ekki speis");
 			flappysound.pause
 			$(".Player.nod").css('-webkit-animation-play-state', 'paused');
+
 	
 						//$('.box').transition({ rotate: '45deg' });
 			//$("#player").transition({ y: movey + 'px', rotate: 90}, 1000, 'easeInOutCubic');
@@ -149,8 +153,8 @@ window.Player = (function() {
 		console.log("dead"); 
    		$(".cloud").css('-webkit-animation-play-state', 'paused');
    		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'paused');
-   		$(".Player-Wingup").hide();
-   		$(".Player .nod").removeClass('Player.nod').addClass('Player.DeadPlayer');
+   		$(".Player .Wingup").hide();
+   		$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
    		music.pause();
    		flappysound.pause();
    		deadsound.load();
