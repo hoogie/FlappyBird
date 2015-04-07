@@ -15,8 +15,8 @@ window.Pipe = (function() {
    var POINTS             = 0;
    var INITIAL_POSITION_X = 0;
    var INITIAL_POSITION_Y = 0;
-   var WIDTH              = 5;
-   var OPENING_HEIGHT     = 10;
+   var PIPE_WIDTH         = 5.2;
+   var OPENING_HEIGHT     = 10.5;
    var MIN_PIPE_HEIGHT    = 15;
    var MAX_PIPE_HEIGHT    = 25;
    var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
@@ -83,7 +83,7 @@ window.Pipe = (function() {
 
    Pipe.prototype.reproduce = function() {
  
-      if(this.elupper.pos.x < -WIDTH) {
+      if(this.elupper.pos.x < -5) {
          var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
          this.elupper.height = tempY;
          this.elupper.pos.x = 100;
@@ -139,17 +139,21 @@ window.Pipe = (function() {
       var elupperY     = this.elupper.pos.y;
       var ellowerX     = this.ellower.pos.x;
       var ellowerY     = this.ellower.pos.y;
+      //var ellowerY     = this.elupper.pos.y + elUpperHeight - START_Y + OPENING_HEIGHT;
       var playerWidth  = 8;
       var playerHeight = 6;
       var elUpperHeight = this.elupper.height;
-      console.log(elUpperHeight, "elupperheight");
-      console.log(this.elupper.height, "this.el.upper");
+      var elLowerHeight = this.ellower.height;
+      console.log(ellowerY, "ellowerX");
+      console.log(playerY + 6, "player neðra X");
+      //console.log(this.elupper.height, "this.el.upper");
     /* console.log(playerX, "player X");
       console.log(playerY, "player Y");
       console.log(elupperX, "upper X");
       console.log(elupperY + elUpperHeight - START_Y, "upper Y");*/
 
-      if(playerX + 8 > elupperX && playerY < elupperY + elUpperHeight - START_Y && playerX < elupperX + 5.2) {
+      if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
+         playerX + playerWidth > ellowerX && playerY + 6 > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
          this.game.player.playerDead();
          return this.game.gameover();
       }
