@@ -1,5 +1,19 @@
 /*http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background*/
 /*http://stackoverflow.com/questions/28505871/css-animation-that-moves-continually*/
+.GameCanvas {
+	font-size: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 102.4em;
+	height: 57.6em;
+	margin-left: -51.2em;
+	margin-top: -28.8em;
+	overflow: hidden;
+	background: url("landscape.png");
+	background-size: contain;
+}
+
 .Player{
 	position: absolute;
 	top: 0;
@@ -10,12 +24,6 @@
 	-webkit-transform: translateZ(0);
 }
 
-.Score{
-	position: absolute;
-	font-weight: bold;
-	font-size: 3em;
-	z-index: 50;
-}
 .Wingup {
 	position: absolute;
 	background: url("wingup.png") no-repeat;
@@ -45,10 +53,9 @@
 	background-size: contain;
 }
 
-.Player .nod {
+.Player .Nod {
 	background: url("bibi.png") no-repeat;
 	background-size: contain;
-	/*-webkit-transform: perspective;*/
 	-webkit-animation: nose 0.2s ease-in infinite alternate;;
 }
 
@@ -65,43 +72,6 @@
 		-webkit-transform: rotate(0deg) translate3d(0px, 0px, 0px);
 	}
 }
-
-/*.NotFlyingPlayer{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 8em;
-	height: 6em;
-	background: url("bibi-notflying.png") no-repeat;
-	background-size: contain;
-	-webkit-transform: translateZ(0);
-}*/
-
-
-/*.Pipe{
-	position: absolute;
-	height: 20em;
-	top: 0;
-	right: 2.5em;
-	background-image: url("pipe.png"); 
-	/*background-repeat: repeat-y;
-	background-position: center;
-
-
-}
-
-.Pipe .upperPipe {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 8em;
-	height: 6em;
-	background: url("pipe-up.png") no-repeat;
-	background-size: contain;
-	-webkit-transform: translateZ(0);
-}
-
-*/
 
 .Pipe {
 	position: absolute;
@@ -154,9 +124,6 @@
 	-webkit-transition: -webkit-transform 0.5s;
 }
 
-/**
-* Reset transform to animate it into the correct spot on the screen.
-*/
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 }
@@ -177,11 +144,13 @@
 body {
 	background: black;
 }
-/*.Scoreboard-pointsText {
-	font-family: 'Rubik Mono One', sans-serif;
-	font-size: 2.4em;
-	color: white;
-}*/
+
+.Score{
+	position: absolute;
+	font-weight: bold;
+	font-size: 3em;
+	z-index: 50;
+}
 
 #stigafjoldi {
 
@@ -198,26 +167,6 @@ body {
 	background: none;
 	
 
-}
-
-.browsehappy {
-	margin: 0.2em 0;
-	background: ?#?ccc?;
-	color: #000;
-	padding: 0.2em 0;
-}
-.GameCanvas {
-	font-size: 10px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 102.4em;
-	height: 57.6em;
-	margin-left: -51.2em;
-	margin-top: -28.8em;
-	overflow: hidden;
-	background: url("landscape.png");
-	background-size: contain;
 }
 
 @-webkit-keyframes waves {
@@ -255,9 +204,6 @@ body {
 	-webkit-transform: translateZ(0);
 }
 
-
-
-/*Time to finalise the cloud shape*/
 .cloud {
 	width: 20em; height: 6em;
 	background: #fff;
@@ -294,7 +240,6 @@ body {
 	right: 1.5em;
 }
 
-/*Time to animate*/
 .x1 {
 	left: 5em;
 	-webkit-animation: moveclouds 15s linear infinite;
@@ -303,16 +248,12 @@ body {
 	-webkit-transform: translateZ(0);
 }
 
-/*variable speed, opacity, and position of clouds for realistic effect*/
 .x2 {
 	left: 80em;
 	-webkit-transform: scale(0.6);
 	-moz-transform: scale(0.6);
 	transform: scale(0.6);
-	opacity: 0.6; /*opacity proportional to the size*/
-	
-	/*Speed will also be proportional to the size and opacity*/
-	/*More the speed. Less the time in 's' = seconds*/
+	opacity: 0.6;
 	-webkit-animation: moveclouds 20s linear infinite;
 	-moz-animation: moveclouds 20s linear infinite;
 	-o-animation: moveclouds 20s linear infinite;
@@ -324,7 +265,7 @@ body {
 	-webkit-transform: scale(0.7);
 	-moz-transform: scale(0.7);
 	transform: scale(0.7);
-	opacity: 0.7; /*opacity proportional to the size*/
+	opacity: 0.7; 
 	-webkit-animation: moveclouds 12s linear infinite;
 	-moz-animation: moveclouds 12s linear infinite;
 	-o-animation: moveclouds 12s linear infinite;
@@ -336,7 +277,7 @@ body {
 	-webkit-transform: scale(0.9);
 	-moz-transform: scale(0.9);
 	transform: scale(0.9);
-	opacity: 0.9; /*opacity proportional to the size*/
+	opacity: 0.9; 
 	-webkit-animation: moveclouds 18s linear infinite;
 	-moz-animation: moveclouds 18s linear infinite;
 	-o-animation: moveclouds 18s linear infinite;
@@ -349,7 +290,7 @@ body {
 	-webkit-transform: scale(0.8);
 	-moz-transform: scale(0.8);
 	transform: scale(0.8);
-	opacity: 0.8; /*opacity proportional to the size*/
+	opacity: 0.8; 
 	-webkit-animation: moveclouds 30s linear infinite;
 	-moz-animation: moveclouds 30s linear infinite;
 	-o-animation: moveclouds 30s linear infinite;
@@ -397,92 +338,6 @@ body {
 	display: none;
 }
 
-/*.pipe {
-	position: absolute;
-	left: -10em;
-	width: 5.2em;
-	height: 100%;
-	z-index: 10;	
-}
-
-.gamestarted .pipe {
-	-webkit-animation: animPipe 9s infinite linear;
-	animation: animPipe 9s infinite linear;
-}
-.upperPipe1 {
-	position: absolute;
-	height: 20em;
-	top: 0;
-	right: 2.5em;
-	background-image: url('pipe-up.png'); //var bara pip
-	background-repeat: repeat-y;
-	background-position: center;
-}
-
-.upperPipe1:after {
-   content: "";
-   position: absolute;
-   bottom: 0;
-   width: 5.2em;
-   height: 2.6em;
-   background-image: url('pipe-down.png');
-}
-
-.lowerPipe1 {
-	position: absolute;
-	height: 20em;
-	bottom: 0;
-	right: 2.5em;
-	background-image: url('pipe.png');
-	background-repeat: repeat-y;
-	background-position: center;
-}
-
-.lowerPipe1:after {
-   content: "";
-   position: absolute;
-   top: 0;
-   width: 5.2em;
-   height: 2.6em;
-   background-image: url('pipe-up.png');
-}
-.upperPipe2 {
-	position: absolute;
-	height: 20em;
-	top: 0;
-	right: 2.5em;
-	background-image: url('pipe.png');
-	background-repeat: repeat-y;
-	background-position: center;
-}
-
-.upperPipe2:after {
-   content: "";
-   position: absolute;
-   bottom: 0;
-   width: 5.2em;
-   height: 2.6em;
-   background-image: url('pipe-down.png');
-}
-
-.lowerPipe2 {
-	position: absolute;
-	height: 20em;
-	bottom: 0;
-	right: 2.5em;
-	background-image: url('pipe.png');
-	background-repeat: repeat-y;
-	background-position: center;
-}
-
-.lowerPipe2:after {
-   content: "";
-   position: absolute;
-   top: 0;
-   width: 5.2em;
-   height: 2.6em;
-   background-image: url('pipe-up.png');
-}*/
 
 @-webkit-keyframes animPipe {
    0% { left: 90em; }

@@ -1,35 +1,20 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<html class="no-js">
     <head>
         <meta charset="utf-8">
         <title>Fab Birdie</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
     </head>
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
         <div class="GameCanvas">
             <div id="currentScore" class="Score"></div>
             <div id="clouds">
                 <div class="cloud x1"></div>
-                <!-- Time for multiple clouds to dance around -->
                 <div class="cloud x2"></div>
                 <div class="cloud x3"></div>
                 <div class="cloud x4"></div>
@@ -49,7 +34,7 @@
             
             <div class="Player">
                 <div class="Player Wingup"></div>
-                <div class="Player nod"></div>
+                <div class="Player Nod"></div>
             </div>
             <div class="Scoreboard">
                 <div class="Scoreboard-points" id="stigafjoldi"><span class="Scoreboard-pointsText">STIG</span></div>
@@ -57,7 +42,7 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
-            <!--   audio  -->
+
             <div class="Audio">
                 <audio id="music" controls="controls" autoplay>
                     <source src="music/chickenDanceSong.mp3" type="audio/mp3" />
@@ -81,13 +66,7 @@
         </div>
 
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/controls.js"></script>
         <script src="scripts/game.js"></script>
@@ -97,6 +76,5 @@
         <script src="scripts/scoreboard.js"></script>
 
         <script src="scripts/pipes.js"></script>
-        <!-- endbuild -->
 </body>
 </html>

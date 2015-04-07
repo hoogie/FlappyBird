@@ -50,7 +50,7 @@ window.Player = (function() {
 		stopper = 0;
 		$('.River .wave.bottom-wave').css('-webkit-animation-play-state', 'running');
 		$('.cloud').css('-webkit-animation-play-state', 'running');
-		$('.Player.nod').css('-webkit-animation-play-state', 'running');
+		$('.Player.Nod').css('-webkit-animation-play-state', 'running');
         $('.Wingup').css('-webkit-animation-play-state', 'running');
         music.play();
         flappysound.play();
@@ -67,12 +67,12 @@ window.Player = (function() {
 			stopper = 1;
 
 			flappysound.play();
-			$('.Player.nod').css('-webkit-animation-play-state', 'running');
+			$('.Player.Nod').css('-webkit-animation-play-state', 'running');
 		}
 		
 		if (!Controls.keys.space){
 			flappysound.pause();
-			$('.Player.nod').css('-webkit-animation-play-state', 'paused');
+			$('.Player.Nod').css('-webkit-animation-play-state', 'paused');
 		}
 
 		if(stopper === 1) {
@@ -97,7 +97,7 @@ window.Player = (function() {
 	Player.prototype.playerDead = function() {
 		$('.cloud').css('-webkit-animation-play-state', 'paused');
 		$('.River .wave.bottom-wave').css('-webkit-animation-play-state', 'paused');
-		$('.Player.nod').css('-webkit-animation-play-state', 'paused');
+		$('.Player.Nod').css('-webkit-animation-play-state', 'paused');
 		$('.Wingup').css('-webkit-animation-play-state', 'paused');
 		music.pause();
 		flappysound.pause();
