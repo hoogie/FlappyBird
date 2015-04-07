@@ -16,11 +16,14 @@ window.Pipe = (function() {
    var INITIAL_POSITION_X = 0;
    var INITIAL_POSITION_Y = 0;
    var PIPE_WIDTH         = 5.2;
-   var OPENING_HEIGHT     = 10.5;
+   var OPENING_HEIGHT     = 13; //hafa 10.5
    var MIN_PIPE_HEIGHT    = 15;
    var MAX_PIPE_HEIGHT    = 25;
    var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
-
+   var counter            = 0;
+   var counter2           = 0;
+   var counter3           = 0;
+   var score              = 0;
    var START_Y            = -20;
    var GAMESTARTED        = 0;
 
@@ -61,6 +64,10 @@ window.Pipe = (function() {
    }
 */
    Pipe.prototype.reset = function() {
+      counter = 0;
+      counter2 = 0;
+      counter3 = 0;
+      score = 0;
       GAMESTARTED = 0;
       var x = 100;
       if (this.vers === 2) {
@@ -84,12 +91,16 @@ window.Pipe = (function() {
    Pipe.prototype.reproduce = function() {
  
       if(this.elupper.pos.x < -5) {
+         counter = 0;
+         counter2 = 0;
+         counter3 = 0;
          var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
          this.elupper.height = tempY;
          this.elupper.pos.x = 100;
          this.elupper.css("height", tempY + "em");
          this.ellower.pos.x = 100;
          this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT; 
+
       }
    };
 
@@ -139,24 +150,32 @@ window.Pipe = (function() {
       var elupperY     = this.elupper.pos.y;
       var ellowerX     = this.ellower.pos.x;
       var ellowerY     = this.ellower.pos.y;
-      //var ellowerY     = this.elupper.pos.y + elUpperHeight - START_Y + OPENING_HEIGHT;
       var playerWidth  = 8;
       var playerHeight = 6;
       var elUpperHeight = this.elupper.height;
       var elLowerHeight = this.ellower.height;
-      console.log(ellowerY, "ellowerX");
-      console.log(playerY + 6, "player neðra X");
-      //console.log(this.elupper.height, "this.el.upper");
-    /* console.log(playerX, "player X");
-      console.log(playerY, "player Y");
-      console.log(elupperX, "upper X");
-      console.log(elupperY + elUpperHeight - START_Y, "upper Y");*/
+ 
 
       if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
          playerX + playerWidth > ellowerX && playerY + 6 > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
          this.game.player.playerDead();
          return this.game.gameover();
       }
+      if(playerX > elupperX + PIPE_WIDTH) {
+         if(this.vers === 1 && counter === 0) {
+            counter = 1;
+            score += 1;
+         }
+         if(this.vers === 2 && counter2 === 0) {
+            counter2 = 1;
+            score += 1;
+         }
+         if(this.vers === 3 && counter3 === 0) {
+            counter3 = 1;
+            score += 1;
+         }
+      }
+      console.log(score, " score");
 
    };
 
