@@ -21,7 +21,7 @@ window.Pipe = (function() {
    var MAX_PIPE_HEIGHT    = 25;
    var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
 
-   var START_Y            = -30;
+   var START_Y            = -20;
 
    function randomNumber(from,to) {
        return Math.floor(Math.random()*(to-from+1)+from);
@@ -43,6 +43,7 @@ window.Pipe = (function() {
 
       var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
       this.elupper.height = tempY;
+      console.log(this.elupper.height, " el upper = temp");
       this.elupper.pos = { x: x, y: START_Y };
       this.elupper.css("height", tempY + "em");
 
@@ -74,6 +75,7 @@ window.Pipe = (function() {
  
       if(this.elupper.pos.x < -WIDTH) {
          var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+         this.elupper.height = tempY;
          this.elupper.pos.x = 100;
          this.elupper.css("height", tempY + "em");
          this.ellower.pos.x = 100;
@@ -121,13 +123,14 @@ window.Pipe = (function() {
       var playerWidth  = 8;
       var playerHeight = 6;
       var elUpperHeight = this.elupper.height;
-      
-      console.log(playerX, "player X");
+      console.log(elUpperHeight, "elupperheight");
+      console.log(this.elupper.height, "this.el.upper");
+    /* console.log(playerX, "player X");
       console.log(playerY, "player Y");
       console.log(elupperX, "upper X");
-      console.log(elupperY, "upper Y");
+      console.log(elupperY + elUpperHeight - START_Y, "upper Y");*/
 
-      if(playerX > elupperX && playerY < elupperY + elUpperHeight) {
+      if(playerX + 8 > elupperX && playerY < elupperY + elUpperHeight - START_Y && playerX < elupperX + 5.2) {
          this.game.player.playerDead();
          return this.game.gameover();
       }
