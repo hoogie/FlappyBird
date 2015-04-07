@@ -87,7 +87,7 @@ window.Player = (function() {
 		$(".cloud").css('-webkit-animation-play-state', 'running');
    		//$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
    		//$(".DeadPlayer").removeClass('DeadPlayer');	
-   		$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player nod');
+   		//$(".DeadPlayer").removeClass('DeadPlayer').addClass('Player nod');
    		$(".Player").show();
    		//$(".Player").addClass('Player');
    		//this.pipe.reset();
@@ -186,8 +186,9 @@ window.Player = (function() {
 		console.log("dead"); 
    		$(".cloud").css('-webkit-animation-play-state', 'paused');
    		$(".River .wave.bottom-wave").css('-webkit-animation-play-state', 'paused');
-   		$(".Player .Wingup").hide();
-   		$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
+   		$(".Player.nod").css('-webkit-animation-play-state', 'paused');
+   		$(".Wingup").css('-webkit-animation-play-state', 'paused');
+   		//$(".Player.nod").removeClass('Player nod').addClass('DeadPlayer');
    		music.pause();
    		flappysound.pause();
    		deadsound.load();
