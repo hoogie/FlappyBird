@@ -10,8 +10,8 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-//		this.pipe = new window.Pipe(this.el.find('#pipe1upper'), this.el.find('#pipe1lower'), this, 1);
-//		this.pipe2 = new window.Pipe(this.el.find('#pipe2upper'), this.el.find('#pipe2lower'), this, 2);
+		this.pipe = new window.Pipe(this.el.find('#pipe1upper'), this.el.find('#pipe1lower'), this, 1);
+		this.pipe2 = new window.Pipe(this.el.find('#pipe2upper'), this.el.find('#pipe2lower'), this, 2);
 		this.pipe3 = new window.Pipe(this.el.find('#pipe3upper'), this.el.find('#pipe3lower'), this, 3);
 		/*this.pipe2 = new window.Pipe(this.el.find('#pipe2'), this, 2);
 		this.pipe3 = new window.Pipe(this.el.find('#pipe3'), this, 3);
@@ -44,8 +44,8 @@ window.Game = (function() {
 		this.player.onFrame(delta);
 
 		//reyna að setja inn pípuhatt
-//		this.pipe.onFrame(delta);
-//		this.pipe2.onFrame(delta);
+		this.pipe.onFrame(delta);
+		this.pipe2.onFrame(delta);
 		this.pipe3.onFrame(delta);
 		
 
@@ -72,13 +72,13 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
-		//console.log(this.player);
-		//console.log(this.pipe);
+		
 
 		this.player.reset();
-		/*this.pipe.reset();
+		this.pipe.reset();
 		this.pipe2.reset();
-		this.pipe3.reset();*/
+		this.pipe3.reset();
+		
 	};
 
 	/**

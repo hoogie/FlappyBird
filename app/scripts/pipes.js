@@ -22,6 +22,7 @@ window.Pipe = (function() {
    var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
 
    var START_Y            = -20;
+   var GAMESTARTED        = 0;
 
    function randomNumber(from,to) {
        return Math.floor(Math.random()*(to-from+1)+from);
@@ -59,19 +60,28 @@ window.Pipe = (function() {
        return Math.floor(Math.random()*(to-from+1)+from);
    }
 */
-   /*Pipe.prototype.reset = function() {
-      console.log("pipe reset");
+   Pipe.prototype.reset = function() {
+      GAMESTARTED = 0;
+      var x = 100;
+      if (this.vers === 2) {
+         x = 130;
+      } else if (this.vers === 3) {
+         x = 160;
+      }
 
-   
+      var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+      this.elupper.height = tempY;
+      console.log(this.elupper.height, " el upper = temp");
+      this.elupper.pos = { x: x, y: START_Y };
+      this.elupper.css("height", tempY + "em");
 
-      this.pos.x = 100;
-      this.pos.y = randomNumber(-4, 4); //todo: randomize !!!
-      //console.log(this.pos.y);
-      //stopper = 0;
-   };*/
+      var lowerY = START_Y + tempY + OPENING_HEIGHT;
+      this.ellower.pos = { x: x, y: lowerY };
+      this.ellower.css("height", MAX_LOWER_HEIGHT + "em");
+   };
    //var tempGap = 10;
 
-   Pipe.prototype.reset = function() {
+   Pipe.prototype.reproduce = function() {
  
       if(this.elupper.pos.x < -WIDTH) {
          var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
@@ -87,17 +97,26 @@ window.Pipe = (function() {
 
 
    Pipe.prototype.onFrame = function(delta) {
-          
-      this.elupper.pos.x -= delta * 20;
-      this.ellower.pos.x -= delta * 20;
-     
-      this.reset();
-          
-      this.checkCollisionWithPipe();
 
-      this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
-      this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+
+      if (Controls.keys.space) {
+         GAMESTARTED = 1;
+         
+      }    
+      
+      if(GAMESTARTED === 1) {
+         this.elupper.pos.x -= delta * 20;
+         this.ellower.pos.x -= delta * 20;
      
+         this.reproduce();
+          
+         this.checkCollisionWithPipe();
+
+         this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
+         this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+    
+      }
+ 
    };
 
    Pipe.prototype.checkCollisionWithPipe = function() {
