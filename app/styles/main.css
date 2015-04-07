@@ -99,63 +99,40 @@
 
 .Pipe {
 	position: absolute;
-	/*right: 0em;*/
 	width: 5.2em;
-	height: 100%;
-	z-index: 10;	
-}
-
-.upperPipe {
-	position: absolute;
-	height: 20em;
-	top: -30em;
-	/*right: 0em;*/
+	z-index: 0;	
+	top: 20em;
 	background-image: url('pipe.png'); 
 	background-repeat: repeat-y;
 	background-position: center;
 	-webkit-transform: translateZ(0);
 }
 
+.upperPipe {
+
+}
 
 .upperPipe:after {
    content: "";
    position: absolute;
-   bottom: 0;
+   bottom: 0em;
    width: 5.2em;
    height: 2.6em;
    background-image: url('pipe-down.png');
 }
 
 .lowerPipe {
-	position: absolute;
-	height: 20em;
-	bottom: 25em;
-	/*right: 0em;*/
-	background-image: url('pipe.png'); 
-	background-repeat: repeat-y;
-	background-position: center;
-	-webkit-transform: translateZ(0);
+
 }
 
 .lowerPipe:after {
    content: "";
    position: absolute;
-   top: 0;
+   top: 0em;
    width: 5.2em;
    height: 2.6em;
    background-image: url('pipe-up.png');
 }
-
-/*.Pipe:after {
-	position: absolute;
-	height: 20em;
-	top: 0;
-	right: 2.5em;
-	background-image: url('pipe-up.png'); //var bara pipe
-	background-repeat: repeat-y;
-	background-position: center;
-}*/
-
 
 .Scoreboard {
 	position: absolute;

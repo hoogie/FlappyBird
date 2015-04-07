@@ -38,6 +38,16 @@ window.Wingup = (function() {
 	}
 });
 
+/*function isPointInRect(pt, rect) {
+
+	if (pt.x >= rect.x && 
+		pt.x <= rect.x + rect.width &&
+		pt.y >= rect.y &&
+		pt.y <= rect.y + rect.height) {
+		return true;
+	}
+	return false;
+}*/
 
 window.Player = (function() {
 	'use strict';
@@ -147,6 +157,29 @@ window.Player = (function() {
 			return this.game.gameover();
 		}
 	};
+
+	/*Player.prototype.collidesWith = function(rect, which) {
+
+		var upperRight = {x: this.pos.x + WIDTH, y: this.pos.y};
+		var lowerRight = {x: this.pos.x + WIDTH, y: this.pos.y + HEIGHT};
+		console.log("bird height ", HEIGHT);
+		console.log("bird width ", WIDTH);
+		console.log(rect, " rect");
+
+		if (isPointInRect(upperRight, rect) ||
+			isPointInRect(lowerRight, rect)) {
+			console.log("UpperRight is: ");
+			console.log(upperRight);
+			console.log("LowerRight is: ");
+			console.log(lowerRight);
+			console.log("Rect is:");
+			console.log(rect);
+			console.log(which)
+			return true;
+		}
+
+		return false;
+	};*/
 
 	Player.prototype.playerDead = function() {
 		//$(".animated").css('animation-play-state', 'paused');

@@ -1,18 +1,29 @@
+
+
+/*function generateRect(el) {
+   return {
+      x: el.pos.x,
+      y: el.pos.y,
+      width: parseInt(el.css("width")) / 10,
+      height: parseInt(el.css("height")) / 10
+   };
+}*/
+
 window.Pipe = (function() {
    'use strict';
 
-   //var Controls = window.Controls;
-
-   var POINTS = 0;
+   var POINTS             = 0;
    var INITIAL_POSITION_X = 0;
    var INITIAL_POSITION_Y = 0;
+   var WIDTH              = 5;
+   var OPENING_HEIGHT     = 10;
+   var MIN_PIPE_HEIGHT    = 15;
+   var MAX_PIPE_HEIGHT    = 25;
+   var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
 
+   var START_Y            = -30;
 
-   var WIDTH = 5;
-
-
-   function randomNumber(from,to)
-   {
+   function randomNumber(from,to) {
        return Math.floor(Math.random()*(to-from+1)+from);
    }
 
@@ -20,42 +31,33 @@ window.Pipe = (function() {
 
       this.elupper = elupper;
       this.ellower = ellower;
-  
+      this.game    = game;
+      this.vers    = vers;
 
-      this.game = game;
-      this.vers = vers;
-      if(this.vers === 1) {
-               var tempY = randomNumber(-4, 4);
-               this.elupper.pos = { x: 100, y: tempY };
-               this.ellower.pos = { x: 100, y: tempY - randomNumber(9, 13) };
-               
-      }
-      if(this.vers === 2) {         
-               var tempY = randomNumber(-4, 4);
-               this.elupper.pos = { x: 130, y: tempY };
-               this.ellower.pos = { x: 130, y: tempY - randomNumber(9, 13) };
-               
-      }
-      if(this.vers === 3){           
-               var tempY = randomNumber(-4, 4);
-               this.elupper.pos = { x: 160, y: tempY };
-               this.ellower.pos = { x: 160, y: tempY - randomNumber(9, 13) };
-               
-
+      var x = 100;
+      if (this.vers === 2) {
+         x = 130;
+      } else if (this.vers === 3) {
+         x = 160;
       }
 
+      var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
+      this.elupper.height = tempY;
+      this.elupper.pos = { x: x, y: START_Y };
+      this.elupper.css("height", tempY + "em");
 
-   
-  
+      var lowerY = START_Y + tempY + OPENING_HEIGHT;
+      this.ellower.pos = { x: x, y: lowerY };
+      this.ellower.css("height", MAX_LOWER_HEIGHT + "em");
    };
 
-
+/*
 
    function randomNumber(from,to)
    {
        return Math.floor(Math.random()*(to-from+1)+from);
    }
-
+*/
    /*Pipe.prototype.reset = function() {
       console.log("pipe reset");
 
@@ -66,110 +68,71 @@ window.Pipe = (function() {
       //console.log(this.pos.y);
       //stopper = 0;
    };*/
-   var tempGap = 10;
+   //var tempGap = 10;
 
    Pipe.prototype.reset = function() {
  
       if(this.elupper.pos.x < -WIDTH) {
-         tempGap = randomNumber(9,13);
+         var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
          this.elupper.pos.x = 100;
-         this.elupper.pos.y = randomNumber(-4, 4);
+         this.elupper.css("height", tempY + "em");
          this.ellower.pos.x = 100;
-         this.ellower.pos.y = this.elupper.pos.y - tempGap;
-         console.log(tempGap);
+         this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT; 
       }
-
-
    };
 
-   /*function playerScore() {
-   //score += 1;
-   //console.log(score);
-   //play score sound
-   /*soundScore.stop();
-   soundScore.play();
-   setBigScore();*/
+ 
 
 
    Pipe.prototype.onFrame = function(delta) {
-      
-    
+          
       this.elupper.pos.x -= delta * 20;
       this.ellower.pos.x -= delta * 20;
      
-         this.reset();
-         //playerScore();
-      
-    
+      this.reset();
+          
       this.checkCollisionWithPipe();
+
       this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
       this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
      
    };
-
-
 
    Pipe.prototype.checkCollisionWithPipe = function() {
 
       //player height = 6, width = 8
       //pipuhattar  width: 5.2em; height: 2.6em;
       //pipur width 5.2 og height 20
-     if(this.vers === 1) {
-      if(this.elupper.pos.x > this.game.player.pos.x) {
-         console.log(tempGap, "tempGat í check");
-         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y) ||
-            (this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 + tempGap < this.game.player.pos.y)) {
-                console.log("----upperbumb----------");
-             
 
-                  this.game.player.playerDead();
-                  return this.game.gameover()
-         }
+      /*var rectUpper = generateRect(this.elupper);
+      var rectLower = generateRect(this.ellower);
 
-         
+      if (this.game.player.collidesWith(rectUpper, "upper") ||
+         this.game.player.collidesWith(rectLower, "lower")) {
+            this.game.player.playerDead();
+            return this.game.gameover();
+      }*/
+      var playerX      = this.game.player.pos.x;
+      var playerY      = this.game.player.pos.y;
+      var elupperX     = this.elupper.pos.x;
+      var elupperY     = this.elupper.pos.y;
+      var ellowerX     = this.ellower.pos.x;
+      var ellowerY     = this.ellower.pos.y;
+      var playerWidth  = 8;
+      var playerHeight = 6;
+      var elUpperHeight = this.elupper.height;
       
+      console.log(playerX, "player X");
+      console.log(playerY, "player Y");
+      console.log(elupperX, "upper X");
+      console.log(elupperY, "upper Y");
+
+      if(playerX > elupperX && playerY < elupperY + elUpperHeight) {
+         this.game.player.playerDead();
+         return this.game.gameover();
       }
-   }
- 
 
-       if(this.vers === 2) {
-           if(this.elupper.pos.x > this.game.player.pos.x) {
-       
-         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y) ||
-            (this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 + tempGap < this.game.player.pos.y)) {
-                console.log("----upperbumb222222222222222222----------");
-             
-
-                  this.game.player.playerDead();
-                  return this.game.gameover()
-         }
-     
- 
-      }
-}
-          
-       if(this.vers === 3) {
-           if(this.elupper.pos.x > this.game.player.pos.x) {
-       
-         if((this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 > this.game.player.pos.y) ||
-            (this.elupper.pos.x < this.game.player.pos.x + 8) && (this.elupper.pos.y + 20 + tempGap < this.game.player.pos.y)) {
-                console.log("----upperbumb33333333333333333333----------");
-             
-
-                  this.game.player.playerDead();
-                  return this.game.gameover()
-         }
-     
- 
-      }
-}
-
-         
-
-      };
-
-
-   
+   };
 
    return Pipe;
 
