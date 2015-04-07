@@ -1,5 +1,3 @@
-/*http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background*/
-/*http://stackoverflow.com/questions/28505871/css-animation-that-moves-continually*/
 .GameCanvas {
 	font-size: 10px;
 	position: absolute;
@@ -152,7 +150,7 @@ body {
 	z-index: 50;
 }
 
-#stigafjoldi {
+#Scoreboard {
 
 	font-family: 'Rubik Mono One', sans-serif;
 	font-size: 2.4em;

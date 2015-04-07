@@ -104,7 +104,7 @@ window.Game = (function() {
 					that.start();
 				});
 		
-		document.getElementById('stigafjoldi').innerHTML = scoreNow;
+		document.getElementById('Scoreboard').innerHTML = scoreNow;
 	};
 
 	/**
