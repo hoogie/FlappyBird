@@ -12,7 +12,7 @@
 window.Pipe = (function() {
     'use strict';
 
-    var POINTS             = 0;
+    var Controls = window.Controls;
     var PIPE_WIDTH         = 5.2;
     var OPENING_HEIGHT     = 13; //hafa 10.5
     var MIN_PIPE_HEIGHT    = 15;
@@ -98,42 +98,42 @@ window.Pipe = (function() {
             this.elupper.height = tempY;
             this.elupper.pos.x = 100;
             this.elupper.css('height', tempY + 'em');
-         this.ellower.pos.x = 100;
-         this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT; 
+            this.ellower.pos.x = 100;
+            this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT;
 
-      }
-   };
+        }
+    };
 
  
 
 
-   Pipe.prototype.onFrame = function(delta) {
+    Pipe.prototype.onFrame = function(delta) {
 
-      document.getElementById("currentScore").innerHTML = score;
-      if (Controls.keys.space) {
-         GAMESTARTED = 1;
+        document.getElementById('currentScore').innerHTML = score;
+        if (Controls.keys.space) {
+            GAMESTARTED = 1;
          
-      }    
+        }
       
-      if(GAMESTARTED === 1) {
-         this.elupper.pos.x -= delta * 20;
-         this.ellower.pos.x -= delta * 20;
+        if(GAMESTARTED === 1) {
+            this.elupper.pos.x -= delta * 20;
+            this.ellower.pos.x -= delta * 20;
          /*var pipeVisible = this.elupper.find('.Pipe .upperPipe');
          pipeVisible
             .addClass('is-visible')*/
      
-         this.reproduce();
+            this.reproduce();
           
-         this.checkCollisionWithPipe();
+            this.checkCollisionWithPipe();
 
-         this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
-         this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+            this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
+            this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
     
-      }
+        }
  
-   };
+    };
 
-   Pipe.prototype.checkCollisionWithPipe = function() {
+    Pipe.prototype.checkCollisionWithPipe = function() {
 
       //player height = 6, width = 8
       //pipuhattar  width: 5.2em; height: 2.6em;
@@ -147,45 +147,44 @@ window.Pipe = (function() {
             this.game.player.playerDead();
             return this.game.gameover();
       }*/
-      var playerX      = this.game.player.pos.x;
-      var playerY      = this.game.player.pos.y;
-      var elupperX     = this.elupper.pos.x;
-      var elupperY     = this.elupper.pos.y;
-      var ellowerX     = this.ellower.pos.x;
-      var ellowerY     = this.ellower.pos.y;
-      var playerWidth  = 8;
-      var playerHeight = 6;
-      var elUpperHeight = this.elupper.height;
-      var elLowerHeight = this.ellower.height;
+        var playerX      = this.game.player.pos.x;
+        var playerY      = this.game.player.pos.y;
+        var elupperX     = this.elupper.pos.x;
+        var elupperY     = this.elupper.pos.y;
+        var ellowerX     = this.ellower.pos.x;
+        var playerWidth  = 8;
+        var playerHeight = 6;
+        var elUpperHeight = this.elupper.height;
+        
 
   
 
-      if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
-         playerX + playerWidth > ellowerX && playerY + 6 > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
-         this.game.player.playerDead();
-         return this.game.gameover();
-      }
+        if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
+           playerX + playerWidth > ellowerX && playerY + playerHeight > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
+            this.game.player.playerDead();
+            return this.game.gameover();
+        }
 
-      if(playerX > elupperX + PIPE_WIDTH) {
-         if(this.vers === 1 && counter === 0) {
-            counter = 1;
-            score += 1;
-         }
-         if(this.vers === 2 && counter2 === 0) {
-            counter2 = 1;
-            score += 1;
-         }
-         if(this.vers === 3 && counter3 === 0) {
-            counter3 = 1;
-            score += 1;
-         }
-      }
-      this.game.getScore(score);
+        if(playerX > elupperX + PIPE_WIDTH) {
+            if(this.vers === 1 && counter === 0) {
+                counter = 1;
+                score += 1;
+            }
+            if(this.vers === 2 && counter2 === 0) {
+                counter2 = 1;
+                score += 1;
+            }
+            if(this.vers === 3 && counter3 === 0) {
+                counter3 = 1;
+                score += 1;
+            }
+        }
+        this.game.getScore(score);
       
 
-   };
+    };
 
-   return Pipe;
+    return Pipe;
 
 /*function updatePipes()
 {
