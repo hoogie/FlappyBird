@@ -52,9 +52,7 @@ window.Pipe = (function() {
 
         var lowerY = START_Y + tempY + OPENING_HEIGHT;
         this.ellower.pos = { x: x, y: lowerY };
-        this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');
-
-      
+        this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');      
     };
 
 /*
@@ -100,12 +98,8 @@ window.Pipe = (function() {
             this.elupper.css('height', tempY + 'em');
             this.ellower.pos.x = 100;
             this.ellower.pos.y = START_Y + tempY + OPENING_HEIGHT;
-
         }
     };
-
- 
-
 
     Pipe.prototype.onFrame = function(delta) {
 
@@ -124,13 +118,11 @@ window.Pipe = (function() {
      
             this.reproduce();
           
-            this.checkCollisionWithPipe();
-
-            this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
-            this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
+            this.checkCollisionWithPipe();            
     
         }
- 
+        this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
+        this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
     };
 
     Pipe.prototype.checkCollisionWithPipe = function() {
@@ -156,8 +148,6 @@ window.Pipe = (function() {
         var playerHeight = 6;
         var elUpperHeight = this.elupper.height;
         
-
-  
 
         if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
            playerX + playerWidth > ellowerX && playerY + playerHeight > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
