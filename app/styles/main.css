@@ -148,7 +148,7 @@ body {
 
 .Score{
 	position: absolute;
-	font-family: 'Rubik Mono One', sans-serif;
+	font-family: 'Courier New', Courier, monospace;;
 	margin-left: 0.5em;
 	margin-top: 0.5em;
 	font-weight: bold;
