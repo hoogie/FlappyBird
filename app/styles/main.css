@@ -116,8 +116,11 @@
 	width: 40em;
 	margin-left: -20em;
 	box-sizing: border-box;
-	background: purple;
-	text-align: center;
+	border-style: solid;
+	border-color: #FFFFFF;
+ 	background: linear-gradient(#6DD5EE, green);	
+ 	text-align: center;
+	z-index: 10;
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 }
@@ -145,8 +148,11 @@ body {
 
 .Score{
 	position: absolute;
+	font-family: 'Rubik Mono One', sans-serif;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
 	font-weight: bold;
-	font-size: 3em;
+	font-size: 3.5em;
 	z-index: 50;
 }
 
