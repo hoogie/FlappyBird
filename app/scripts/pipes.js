@@ -51,11 +51,11 @@ window.Pipe = (function() {
             resetCounters();
             score = 0;
             GAMESTARTED = 0;
-            var x = 100;
+            var x = 105;
             if (this.vers === 2) {
-                x = 130;
+                x = 135;
             } else if (this.vers === 3) {
-                x = 160;
+                x = 165;
             }
       
             var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
