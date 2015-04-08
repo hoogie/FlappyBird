@@ -113,7 +113,7 @@
 }
 
 .Scoreboard-restart {
-	margin-top: 8em;
+	margin-top: 4em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
@@ -142,17 +142,26 @@ body {
 }
 
 #Scoreboard {
-
 	font-family: 'Rubik Mono One', sans-serif;
 	font-size: 2.4em;
 	color: white;
+}
+
+.Scoreboard-pointsText{
+	position: absolute;
+	font-family: 'Rubik Mono One', sans-serif;
+	font-size: 2.4em;
+	color: white;
+	margin-top: 2em;
+	margin-left: -1.5em;
 }
 
 .Scoreboard-points {
 	margin-top: 5em;
 	font-size: inherit;
 	padding: 0.4em 1.5em;
-	border: 0.2em solid white;
+	border-top: 0.2em solid white;
+	border-bottom: 0.2em solid white;
 	background: none;
 }
 
