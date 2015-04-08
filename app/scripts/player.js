@@ -50,7 +50,6 @@ window.Player = (function() {
 		stopper = 0;
 		$('.River .wave.bottom-wave').css('-webkit-animation-play-state', 'running');
 		$('.cloud').css('-webkit-animation-play-state', 'running');
-		$('.Player.Nod').css('-webkit-animation-play-state', 'running');
         $('.Wingup').css('-webkit-animation-play-state', 'running');
         music.play();
 	};
