@@ -10,7 +10,8 @@ window.Controls = (function() {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        41: 'click'
     };
 
     /**
@@ -25,7 +26,7 @@ window.Controls = (function() {
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
             .on('keyup', this._onKeyUp.bind(this))
-            .on('screenclick', this._onScreenClick.bind(this));
+            .on('onmousedown', this._onScreenClick.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -41,6 +42,21 @@ window.Controls = (function() {
             return false;
         }
     };
+
+    Controls.prototype._onKeyDown = function(e) {
+        // Only jump if space wasn't pressed.
+        if (e.keyCode === 41 && !this.keys.click) {
+            this._didJump = true;
+        }
+
+        // Remember that this button is down.
+        if (e.keyCode in KEYS) {
+            var keyName = KEYS[e.keyCode];
+            this.keys[keyName] = true;
+            return false;
+        }
+    };
+
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
