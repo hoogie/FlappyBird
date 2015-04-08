@@ -56,7 +56,7 @@ window.Controls = (function() {
             $(document).on('touchstart', screenClick);
         }
         this._didJump = true;
-}
+    };
     /**
      * Only answers true once until a key is pressed again.
      */
