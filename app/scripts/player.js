@@ -53,7 +53,6 @@ window.Player = (function() {
 		$('.Player.Nod').css('-webkit-animation-play-state', 'running');
         $('.Wingup').css('-webkit-animation-play-state', 'running');
         music.play();
-        flappysound.play();
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -71,7 +70,6 @@ window.Player = (function() {
 		}
 		
 		if (!Controls.keys.space){
-			flappysound.pause();
 			$('.Player.Nod').css('-webkit-animation-play-state', 'paused');
 		}
 
