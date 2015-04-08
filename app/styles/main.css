@@ -42,15 +42,6 @@
 	}
 }
 
-.DeadPlayer{
-	top: 0;
-	left: 0;
-	width: 8em;
-	height: 6em;
-	background: url("bibi-dead.png") no-repeat;
-	background-size: contain;
-}
-
 .Player .Nod {
 	background: url("bibi.png") no-repeat;
 	background-size: contain;
@@ -82,10 +73,6 @@
 	-webkit-transform: translateZ(0);
 }
 
-.upperPipe {
-
-}
-
 .upperPipe:after {
    content: "";
    position: absolute;
@@ -93,10 +80,6 @@
    width: 5.2em;
    height: 2.6em;
    background-image: url('pipe-down.png');
-}
-
-.lowerPipe {
-
 }
 
 .lowerPipe:after {
@@ -137,11 +120,13 @@
 	background: none;
 	cursor: pointer;
 }
+
 .Scoreboard-restartText {
 	font-family: 'Rubik Mono One', sans-serif;
 	font-size: 2.4em;
 	color: white;
 }
+
 body {
 	background: black;
 }
@@ -169,8 +154,6 @@ body {
 	padding: 0.4em 1.5em;
 	border: 0.2em solid white;
 	background: none;
-	
-
 }
 
 @-webkit-keyframes waves {
@@ -233,7 +216,6 @@ body {
 	transform: rotate(30deg);
 	-moz-transform: rotate(30deg);
 	-webkit-transform: translateZ(0);
-
 }
 
 .cloud:after {
@@ -341,7 +323,6 @@ body {
 #deadsound, #flappysound, #music {
 	display: none;
 }
-
 
 @-webkit-keyframes animPipe {
    0% { left: 90em; }

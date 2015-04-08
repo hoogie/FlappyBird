@@ -1,14 +1,3 @@
-
-
-/*function generateRect(el) {
-   return {
-      x: el.pos.x,
-      y: el.pos.y,
-      width: parseInt(el.css("width")) / 10,
-      height: parseInt(el.css("height")) / 10
-   };
-}*/
-
 window.Pipe = (function() {
     'use strict';
 
@@ -45,8 +34,6 @@ window.Pipe = (function() {
         this.reset();
     };
 
-
-
     Pipe.prototype.reset = function() {
             resetCounters();
             score = 0;
@@ -66,7 +53,6 @@ window.Pipe = (function() {
             this.ellower.pos = { x: x, y: lowerY };
             this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');
         };
-   //var tempGap = 10;
 
     Pipe.prototype.reproduce = function() {
  
@@ -96,24 +82,13 @@ window.Pipe = (function() {
             this.reproduce();
           
             this.checkCollisionWithPipe();            
-    
         }
         this.elupper.css('transform', 'translateZ(0) translate(' + this.elupper.pos.x + 'em, ' + this.elupper.pos.y + 'em)');
         this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
     };
 
-    
     Pipe.prototype.checkCollisionWithPipe = function() {
 
-
-      /*var rectUpper = generateRect(this.elupper);
-      var rectLower = generateRect(this.ellower);
-
-      if (this.game.player.collidesWith(rectUpper, "upper") ||
-         this.game.player.collidesWith(rectLower, "lower")) {
-            this.game.player.playerDead();
-            return this.game.gameover();
-      }*/
         var playerX      = this.game.player.pos.x;
         var playerY      = this.game.player.pos.y;
         var elupperX     = this.elupper.pos.x;
@@ -123,7 +98,6 @@ window.Pipe = (function() {
         var playerHeight = 6;
         var elUpperHeight = this.elupper.height;
         
-
         if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
            playerX + playerWidth > ellowerX && playerY + playerHeight > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT && playerX < ellowerX + PIPE_WIDTH) {
             this.game.player.playerDead();
@@ -145,25 +119,8 @@ window.Pipe = (function() {
             }
         }
         this.game.getScore(score);
-      
-
     };
 
     return Pipe;
 
-/*function updatePipes()
-{
-   console.log("update pipes kall");
-   //Do any pipes need removal?
-   $(".pipe").filter(function() { return $(this).position().left <= -100; }).remove()
-   
-   //add a new pipe (top height + bottom height  + pipeheight == 420) and put it in our tracker
-   var padding = 80;
-   var constraint = 420 - pipeheight - (padding * 2); //double padding (for top and bottom)
-   var topheight = Math.floor((Math.random()*constraint) + padding); //add lower padding
-   var bottomheight = (420 - pipeheight) - topheight;
-   var newpipe = $('<div class="upperPipe" style="height: ' + topheight + 'em;"></div><div class="lowerPipe" style="height: ' + bottomheight + 'em;"></div></div>');
-   $("#flyarea").append(newpipe);
-   pipes.push(newpipe);
-}*/
 })();

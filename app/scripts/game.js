@@ -13,10 +13,7 @@ window.Game = (function() {
 		this.pipe = new window.Pipe(this.el.find('#pipe1upper'), this.el.find('#pipe1lower'), this, 1);
 		this.pipe2 = new window.Pipe(this.el.find('#pipe2upper'), this.el.find('#pipe2lower'), this, 2);
 		this.pipe3 = new window.Pipe(this.el.find('#pipe3upper'), this.el.find('#pipe3lower'), this, 3);
-		/*this.pipe2 = new window.Pipe(this.el.find('#pipe2'), this, 2);
-		this.pipe3 = new window.Pipe(this.el.find('#pipe3'), this, 3);
-		*/
-
+		
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
