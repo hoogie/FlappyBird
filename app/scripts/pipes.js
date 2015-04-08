@@ -3,9 +3,9 @@ window.Pipe = (function() {
 
     var Controls = window.Controls;
     var PIPE_WIDTH         = 5.2;
-    var OPENING_HEIGHT     = 11; //hafa 10.5
-    var MIN_PIPE_HEIGHT    = 15;
-    var MAX_PIPE_HEIGHT    = 25;
+    var OPENING_HEIGHT     = 11; 
+    var MIN_PIPE_HEIGHT    = 12;
+    var MAX_PIPE_HEIGHT    = 32;
     var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
     var counter1           = 0;
     var counter2           = 0;
