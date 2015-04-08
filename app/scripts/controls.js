@@ -24,7 +24,8 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('screenclick', this._onScreenClick.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -48,7 +49,14 @@ window.Controls = (function() {
             return false;
         }
     };
-
+    // touchscreens
+    Controls.prototype._onScreenClick = function(e) {
+        if('screenclick' in window)
+        {
+            $(document).on('touchstart', screenClick);
+        }
+        this._didJump = true;
+}
     /**
      * Only answers true once until a key is pressed again.
      */

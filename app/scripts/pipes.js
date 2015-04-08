@@ -14,11 +14,11 @@ window.Pipe = (function() {
 
     var Controls = window.Controls;
     var PIPE_WIDTH         = 5.2;
-    var OPENING_HEIGHT     = 13; //hafa 10.5
+    var OPENING_HEIGHT     = 11; //hafa 10.5
     var MIN_PIPE_HEIGHT    = 15;
     var MAX_PIPE_HEIGHT    = 25;
     var MAX_LOWER_HEIGHT   = 58 - (MIN_PIPE_HEIGHT + OPENING_HEIGHT);
-    var counter            = 0;
+    var counter1           = 0;
     var counter2           = 0;
     var counter3           = 0;
     var score              = 0;
@@ -29,6 +29,12 @@ window.Pipe = (function() {
         return Math.floor(Math.random()*(to-from+1)+from);
     }
 
+    function resetCounters() {
+        counter1 = 0;
+        counter2 = 0;
+        counter3 = 0;
+    }
+
     var Pipe = function(elupper, ellower, game, vers) {
 
         this.elupper = elupper;
@@ -36,36 +42,13 @@ window.Pipe = (function() {
         this.game    = game;
         this.vers    = vers;
 
-        score = 0;
-
-        var x = 100;
-        if (this.vers === 2) {
-            x = 130;
-        } else if (this.vers === 3) {
-            x = 160;
-        }
-
-        var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
-        this.elupper.height = tempY;
-        this.elupper.pos = { x: x, y: START_Y };
-        this.elupper.css('height', tempY + 'em');
-
-        var lowerY = START_Y + tempY + OPENING_HEIGHT;
-        this.ellower.pos = { x: x, y: lowerY };
-        this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');      
+        this.reset();
     };
 
-/*
 
-   function randomNumber(from,to)
-   {
-       return Math.floor(Math.random()*(to-from+1)+from);
-   }
-*/
+
     Pipe.prototype.reset = function() {
-            counter = 0;
-            counter2 = 0;
-            counter3 = 0;
+            resetCounters();
             score = 0;
             GAMESTARTED = 0;
             var x = 100;
@@ -79,7 +62,6 @@ window.Pipe = (function() {
             this.elupper.height = tempY;
             this.elupper.pos = { x: x, y: START_Y };
             this.elupper.css('height', tempY + 'em');
-
             var lowerY = START_Y + tempY + OPENING_HEIGHT;
             this.ellower.pos = { x: x, y: lowerY };
             this.ellower.css('height', MAX_LOWER_HEIGHT + 'em');
@@ -89,9 +71,7 @@ window.Pipe = (function() {
     Pipe.prototype.reproduce = function() {
  
         if(this.elupper.pos.x < -5) {
-            counter = 0;
-            counter2 = 0;
-            counter3 = 0;
+            resetCounters();
             var tempY = randomNumber(MIN_PIPE_HEIGHT, MAX_PIPE_HEIGHT);
             this.elupper.height = tempY;
             this.elupper.pos.x = 100;
@@ -112,9 +92,6 @@ window.Pipe = (function() {
         if(GAMESTARTED === 1) {
             this.elupper.pos.x -= delta * 20;
             this.ellower.pos.x -= delta * 20;
-         /*var pipeVisible = this.elupper.find('.Pipe .upperPipe');
-         pipeVisible
-            .addClass('is-visible')*/
      
             this.reproduce();
           
@@ -125,11 +102,9 @@ window.Pipe = (function() {
         this.ellower.css('transform', 'translateZ(0) translate(' + this.ellower.pos.x + 'em, ' + this.ellower.pos.y + 'em)');
     };
 
+    
     Pipe.prototype.checkCollisionWithPipe = function() {
 
-      //player height = 6, width = 8
-      //pipuhattar  width: 5.2em; height: 2.6em;
-      //pipur width 5.2 og height 20
 
       /*var rectUpper = generateRect(this.elupper);
       var rectLower = generateRect(this.ellower);
@@ -150,14 +125,14 @@ window.Pipe = (function() {
         
 
         if(playerX + playerWidth > elupperX && playerY < elupperY + elUpperHeight - START_Y - 1 && playerX < elupperX + PIPE_WIDTH ||
-           playerX + playerWidth > ellowerX && playerY + playerHeight > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT&& playerX < ellowerX + PIPE_WIDTH) {
+           playerX + playerWidth > ellowerX && playerY + playerHeight > elupperY + elUpperHeight - START_Y + 1 + OPENING_HEIGHT && playerX < ellowerX + PIPE_WIDTH) {
             this.game.player.playerDead();
             return this.game.gameover();
         }
 
         if(playerX > elupperX + PIPE_WIDTH) {
-            if(this.vers === 1 && counter === 0) {
-                counter = 1;
+            if(this.vers === 1 && counter1 === 0) {
+                counter1 = 1;
                 score += 1;
             }
             if(this.vers === 2 && counter2 === 0) {
