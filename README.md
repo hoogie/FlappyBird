@@ -1,3 +1,5 @@
+﻿This game was a group project in the course Web Programming II at Reykjavík University 2015.
+
 Til að keyra leikinn upp þarf að gera:
 npm install
 bower install
